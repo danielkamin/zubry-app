@@ -1,0 +1,66 @@
+name: Publish
+
+on:
+  workflow_run:
+    workflows: ['Test']
+    types:
+      - completed
+
+jobs:
+  build-cms:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd ~/zubry-apps
+            git restore .
+            git pull origin main
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            git status
+            cd ~/zubry-app/apps/backend
+            yarn install
+            yarn build --no-optimization
+            pm2 restart CMS
+
+  build-client:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd ~/zubry-app/apps/frontend
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            git status
+            yarn install
+            yarn run build
+            pm2 restart Next
+
+  lighthouse:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          urls: |
+            https://zubry.pl/
+            https://zubry.pl/terminarz_2lm
+            https://zubry.pl/sklep
+          uploadArtifacts: true # save results as an action artifacts
+          temporaryPublicStorage: true # upload lighthouse report to the temporary storage
