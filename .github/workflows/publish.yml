@@ -16,7 +16,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.PRIVATE_KEY }}
+          password: ${{ secrets.PASSWORD }}
           port: 22
           script: |
             cd ~/zubry-apps
@@ -31,6 +31,7 @@ jobs:
             pm2 restart CMS
 
   build-client:
+    needs: build-cms
     runs-on: ubuntu-latest
 
     steps:
@@ -39,7 +40,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.PRIVATE_KEY }}
+          password: ${{ secrets.PASSWORD }}
           port: 22
           script: |
             cd ~/zubry-app/apps/frontend
@@ -51,7 +52,7 @@ jobs:
             pm2 restart Next
 
   lighthouse:
-    needs: build-cms
+    needs: build-client
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
