@@ -26,7 +26,7 @@ jobs:
             source ~/.nvm/nvm.sh
             git status
             cd ~/zubry-app/apps/backend
-            yarn install
+            npm install
             yarn build --no-optimization
             pm2 restart CMS
 
@@ -46,8 +46,8 @@ jobs:
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             git status
-            yarn install
-            yarn run build
+            npm install
+            npm run build
             pm2 restart Next
 
   lighthouse:
