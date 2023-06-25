@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "adresses",
+  "info": {
+    "singularName": "adres",
+    "pluralName": "adresses",
+    "displayName": "Adres",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "City": {
+      "type": "string"
+    },
+    "Street": {
+      "type": "string"
+    },
+    "Building_Number": {
+      "type": "string"
+    },
+    "Premises_Number": {
+      "type": "string"
+    },
+    "Zip_Code": {
+      "type": "string"
+    }
+  }
+}

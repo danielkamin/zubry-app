@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "kontakts",
+  "info": {
+    "singularName": "kontakt",
+    "pluralName": "kontakts",
+    "displayName": "Kontakt",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Phone_Number": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "string"
+    },
+    "Opening_Hours": {
+      "type": "string"
+    },
+    "KRS": {
+      "type": "string"
+    },
+    "NIP": {
+      "type": "string"
+    },
+    "REGON": {
+      "type": "string"
+    },
+    "Bank_Account_Number": {
+      "type": "string"
+    }
+  }
+}

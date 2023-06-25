@@ -1,0 +1,45 @@
+{
+  "name": "zubry-cms",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "build:prod": "NODE_ENV=production strapi build",
+    "strapi": "strapi",
+    "watch:develop": "strapi develop --watch-admin",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --fix --ext .js",
+    "prettier": "prettier --check **/*.js",
+    "prettier:fix": "prettier --write **/*.js"
+  },
+  "dependencies": {
+    "@strapi/helper-plugin": "~4.5.0",
+    "@strapi/plugin-documentation": "~4.5.0",
+    "@strapi/plugin-i18n": "~4.5.0",
+    "@strapi/plugin-users-permissions": "~4.5.0",
+    "@strapi/provider-email-nodemailer": "~4.5.0",
+    "@strapi/strapi": "~4.5.0",
+    "axios": "^0.27.2",
+    "pg": "^8.7.1",
+    "sqlite3": "5.0.2",
+    "strapi-plugin-react-editorjs": "^2.0.0"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "10d96260-8e0a-493e-b81d-09c66f15f057"
+  },
+  "engines": {
+    "node": ">=12.x.x <=16.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/eslint-parser": "^7.19.1"
+  }
+}

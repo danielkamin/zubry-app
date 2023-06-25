@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dostepne_rozmiaries",
+  "info": {
+    "singularName": "dostepne-rozmiary",
+    "pluralName": "dostepne-rozmiaries",
+    "displayName": "Dostępne Rozmiary",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Size": {
+      "type": "string"
+    }
+  }
+}

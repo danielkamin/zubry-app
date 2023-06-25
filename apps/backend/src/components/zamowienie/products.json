@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_zamowienie_products",
+  "info": {
+    "displayName": "Products",
+    "icon": "cart-arrow-down"
+  },
+  "options": {},
+  "attributes": {
+    "Product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::produkt.produkt"
+    },
+    "Size": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::dostepne-rozmiary.dostepne-rozmiary"
+    },
+    "Count": {
+      "type": "integer"
+    }
+  }
+}

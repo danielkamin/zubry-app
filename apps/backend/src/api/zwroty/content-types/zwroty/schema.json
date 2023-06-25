@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "zwroties",
+  "info": {
+    "singularName": "zwroty",
+    "pluralName": "zwroties",
+    "displayName": "Zwroty",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Return_Date": {
+      "type": "date"
+    },
+    "Return_Realization_Date": {
+      "type": "date"
+    },
+    "Is_Realized": {
+      "type": "boolean"
+    },
+    "Note": {
+      "type": "text"
+    },
+    "Order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::zamowienie.zamowienie"
+    },
+    "User": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "Returns"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_rozgrywki_positions",
+  "info": {
+    "displayName": "Position",
+    "icon": "th-list"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Rank": {
+      "type": "integer",
+      "required": true
+    },
+    "Games": {
+      "type": "integer",
+      "required": true
+    },
+    "Wins": {
+      "type": "integer",
+      "required": true
+    },
+    "Losses": {
+      "type": "integer",
+      "required": true
+    },
+    "Points": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

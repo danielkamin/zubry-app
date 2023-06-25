@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_zdjecia_categories",
+  "info": {
+    "displayName": "Category",
+    "icon": "images"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

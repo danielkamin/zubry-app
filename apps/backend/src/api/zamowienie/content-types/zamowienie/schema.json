@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "zamowienies",
+  "info": {
+    "singularName": "zamowienie",
+    "pluralName": "zamowienies",
+    "displayName": "Zamowienie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Order_Date": {
+      "type": "date"
+    },
+    "Order_Sent_Date": {
+      "type": "date"
+    },
+    "Is_Sent": {
+      "type": "boolean"
+    },
+    "Is_Realized": {
+      "type": "boolean"
+    },
+    "Note": {
+      "type": "text"
+    },
+    "City": {
+      "type": "string"
+    },
+    "Building_Number": {
+      "type": "string"
+    },
+    "Apartment_Number": {
+      "type": "string"
+    },
+    "Zip_Code": {
+      "type": "string"
+    },
+    "Details": {
+      "type": "dynamiczone",
+      "components": [
+        "zamowienie.products"
+      ]
+    },
+    "Order_Number": {
+      "type": "string"
+    },
+    "Is_Returned": {
+      "type": "boolean"
+    },
+    "Last_Name": {
+      "type": "string"
+    },
+    "First_Name": {
+      "type": "string"
+    },
+    "Phone_Number": {
+      "type": "string"
+    },
+    "Street": {
+      "type": "string"
+    },
+    "User": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "Orders"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_rozgrywki_games",
+  "info": {
+    "displayName": "Game",
+    "icon": "basketball-ball",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Host_Team": {
+      "type": "string",
+      "required": true
+    },
+    "Host_Points": {
+      "type": "integer",
+      "required": false
+    },
+    "Away_Team": {
+      "type": "string",
+      "required": true
+    },
+    "Away_Points": {
+      "type": "integer",
+      "required": false
+    },
+    "Game_Date": {
+      "type": "datetime",
+      "required": true
+    },
+    "Game_Stage_Number": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}
