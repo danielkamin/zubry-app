@@ -5,7 +5,7 @@ import Head from 'next/head';
 
 import Layout from '@/components/layout/Main/index';
 import Header from '@/components/simple/Header';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 import { TStrapiClubGallery } from '@/types/strapi.types';
 
 const ImageGallery = ({ categories }: { categories: TStrapiClubGallery }) => {

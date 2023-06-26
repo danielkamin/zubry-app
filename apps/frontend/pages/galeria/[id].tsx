@@ -1,7 +1,7 @@
 import Layout from '@/components/layout/Main/index';
 import GridGallery from '@/components/simple/GridGallery';
 import Header from '@/components/simple/Header';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 import { TStrapiGalleryCategory } from '@/types/strapi.types';
 
 const CategoryImages = ({ category }: { category: TStrapiGalleryCategory }) => {

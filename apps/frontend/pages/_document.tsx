@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { FB_PIXEL_ID } from '@/tracking/fbpixel';
+import { FB_PIXEL_ID } from 'common/tracking/fbpixel';
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);

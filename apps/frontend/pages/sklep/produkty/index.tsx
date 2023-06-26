@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import ShopLayout from '@/components/layout/Shop/index';
-import ShopService from '@/modules/services/shop.service';
+import ShopService from 'common/services/shop.service';
 import ProductsSidebar from '@/components/page/Products/ProductsSidebar';
 import ShoppingCard from '@/components/simple/ShoppingCard';
 import { TStrapiContentItem, TStrapiProduct } from '@/types/strapi.types';

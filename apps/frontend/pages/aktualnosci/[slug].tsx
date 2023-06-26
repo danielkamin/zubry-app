@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import NewsBody from '@/components/page/Aktualnosci/NewsBody';
 import NewsHeader from '@/components/page/Aktualnosci/NewsHeader';
 import Layout from '@/components/layout/Main/index';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 import { TStrapiArrayResponse, TStrapiArticle } from '@/types/strapi.types';
 import HorizontalCardSkeleton from '@/components/simple/HorizontalCardSkeleton';
 import NewsCard from '@/components/page/Aktualnosci/NewsCard';

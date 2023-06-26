@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 
 import { registerSchema } from '@/validation';
-import UserService from '@/modules/services/user.service';
-import { useAlertContext } from '@/modules/store/alert.context';
+import UserService from 'common/services/user.service';
+import { useAlertContext } from 'common/store/alert.context';
 import Link from 'next/link';
 
 const RegisterForm = () => {

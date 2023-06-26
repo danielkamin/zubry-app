@@ -1,9 +1,9 @@
-import { AxiosInstance } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 import { format } from 'date-fns';
 import { pl } from 'date-fns/locale';
 
-import { pzkoszAxiosInstance } from '@/modules/axios/pzoszAxios';
-import MainPageService from '@/modules/services/main.service';
+import { PZKOSZ_URL } from 'common/utils/constants';
+import MainPageService from 'common/services/main.service';
 import { PzkoszSettings } from '@/types/common.types';
 const initalLatestGameData = {
   date: format(new Date(), 'dd.MM.yyyy HH:mm', { locale: pl }),
@@ -26,8 +26,10 @@ class PzkoszApiService {
   private settings: PzkoszSettings;
   private static pzkoszApiServiceInstance: PzkoszApiService;
 
-  private constructor(apiAxiosInstance: AxiosInstance, apiRequestParams: URLSearchParams, settings: PzkoszSettings) {
-    this.apiAxiosInstance = apiAxiosInstance;
+  private constructor(apiRequestParams: URLSearchParams, settings: PzkoszSettings) {
+    this.apiAxiosInstance = axios.create({
+      baseURL: PZKOSZ_URL
+    });
     this.apiRequestParams = apiRequestParams;
     this.settings = settings;
   }
@@ -51,7 +53,7 @@ class PzkoszApiService {
         apiRequestParams.append('groupid', '1543');
         apiRequestParams.append('teamid', '7601');
       }
-      PzkoszApiService.pzkoszApiServiceInstance = new PzkoszApiService(pzkoszAxiosInstance, apiRequestParams, settings);
+      PzkoszApiService.pzkoszApiServiceInstance = new PzkoszApiService(apiRequestParams, settings);
     }
     return PzkoszApiService.pzkoszApiServiceInstance;
   }
@@ -133,28 +135,6 @@ class PzkoszApiService {
     }
   }
 
-  async getTest() {
-    const currentRequestParams = new URLSearchParams(this.apiRequestParams);
-    currentRequestParams.append('function', 'getTimetable');
-    currentRequestParams.delete('groupid');
-    try {
-      const response = await this.apiAxiosInstance.post('', currentRequestParams);
-      const data = response.data.items;
-      if (!data) throw new Error('Brak zwróconych danych z PZKOSZ.');
-
-      Object.entries(data).forEach((entrie: unknown) => {
-        if (entrie[1].poziom.nazwa === 'Play OFF') {
-          console.log('entrie[1].k1: ', entrie[1].k1.nazwa);
-          console.log('entrie[1].k2: ', entrie[1].k2.nazwa);
-        }
-      });
-      return '';
-    } catch (e) {
-      console.log(e);
-      return { status: true, result: initalLatestGameData };
-    }
-  }
-
   async getLeaderBoard() {
     const currentRequestParams = new URLSearchParams(this.apiRequestParams);
     currentRequestParams.append('function', 'getLeagueTable');
@@ -184,7 +164,7 @@ class PzkoszApiService {
       if (data.error) return { status: true, result: [] };
       return { status: true, result: data };
     } catch (err) {
-      console.log(err);
+      console.error(err);
       return { status: true, result: [] };
     }
   }
@@ -202,11 +182,7 @@ class PzkoszApiService {
     }
   }
 
-  /**
-   * @param {string} data
-   * @returns
-   */
-  customDateFormat(data) {
+  customDateFormat(data: string): Date {
     const [date, time] = data.split(' ');
     const [day, month, year] = date.split('.');
     const [hour, minute] = time !== undefined ? time.split(':') : ['17', '00'];

@@ -3,7 +3,7 @@ import { getSession } from 'next-auth/react';
 import ShopLayout from '@/components/layout/Shop/index';
 import AccountSection from '@/components/page/Account/AccountSection';
 import AccountReturnsTable from '@/components/page/Account/AccountReturnsTable';
-import ShopService from '@/modules/services/shop.service';
+import ShopService from 'common/services/shop.service';
 import { TStrapiContentItem, TStrapiReturn } from '@/types/strapi.types';
 import { TSession } from '@/types/common.types';
 

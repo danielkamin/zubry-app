@@ -1,6 +1,6 @@
 import ShopLayout from '@/components/layout/Shop/index';
 import NewsTitle from '@/components/page/Aktualnosci/NewsTitle';
-import ShopService from '@/modules/services/shop.service';
+import ShopService from 'common/services/shop.service';
 import BasicArticle from '@/components/complex/BasicArticle';
 
 const Regulations = ({ shopRegulations }: { shopRegulations: string }) => {

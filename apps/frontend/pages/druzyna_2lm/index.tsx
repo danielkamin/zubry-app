@@ -5,7 +5,7 @@ import Header from '@/components/simple/Header';
 import Layout from '@/components/layout/Main/index';
 import Coach from '@/components/simple/Coach';
 import { PickGridCols } from '@/utils/helpers';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 import { TStrapiArrayResponse, TStrapiCoach, TStrapiPlayer } from '@/types/strapi.types';
 
 export default function Team({

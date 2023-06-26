@@ -5,7 +5,7 @@ import ShopLayout from '@/components/layout/Shop/index';
 
 import ContactForm from '@/components/forms/ContactForm';
 import ContactInfo from '@/components/page/Kontakt/ContactInfo';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 
 const Contact = ({ contactData }) => {
   return (

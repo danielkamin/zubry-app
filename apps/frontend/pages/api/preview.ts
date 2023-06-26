@@ -1,4 +1,4 @@
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 
 export default async function preview(req, res) {
   // Check the secret and next parameters

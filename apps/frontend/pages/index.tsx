@@ -15,7 +15,7 @@ const ImagesRotator = dynamic(() => import('@/components/simple/ImagesRotator'))
 
 import Layout from '@/components/layout/Main/index';
 import { gymGoogleMapsIframeSrc } from 'common/utils/constants';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 import {
   TStrapiArrayResponse,
   TStrapiArticle,
@@ -23,7 +23,7 @@ import {
   TStrapiImageWithFormats,
   TStrapiPlayer
 } from '@/types/strapi.types';
-import PzkoszApiService from '@/modules/services/pzkosz.service';
+import PzkoszApiService from 'common/services/pzkosz.service';
 
 interface IHomePageProps {
   latestNews: TStrapiArrayResponse<TStrapiArticle>;

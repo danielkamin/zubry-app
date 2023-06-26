@@ -7,7 +7,7 @@ import Layout from '@/components/layout/Main/index';
 import Header from '@/components/simple/Header';
 import GridGallery from '@/components/simple/GridGallery';
 import { calculateAge } from '@/utils/helpers';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 import HorizontalCardSkeleton from '@/components/simple/HorizontalCardSkeleton';
 import { TStrapiPlayer } from '@/types/strapi.types';
 

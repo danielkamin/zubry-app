@@ -4,7 +4,7 @@ import { UserOutlined, ShoppingCartOutlined, PoweroffOutlined } from '@ant-desig
 import { signOut, useSession } from 'next-auth/react';
 import { useState } from 'react';
 import { isCurrentPath } from '@/utils/helpers';
-import useCartStore from '@/modules/store/shop.store';
+import useCartStore from 'common/store/shop.store';
 
 const ShopNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);

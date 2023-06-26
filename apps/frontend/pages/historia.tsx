@@ -1,7 +1,7 @@
 import { Parser } from 'html-to-react';
 import edjsHTML from 'editorjs-html';
 
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 import Header from '@/components/simple/Header';
 import Layout from '@/components/layout/Main/index';
 import { TStrapiClubHistory, TStrapiObjectResponse } from '@/types/strapi.types';

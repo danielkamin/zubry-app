@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 
 import ShopLayout from '@/components/layout/Shop/index';
-import ShopService from '@/modules/services/shop.service';
+import ShopService from 'common/services/shop.service';
 import ProductDetails from '@/components/complex/ProductDetails';
 import { TStrapiContentItem, TStrapiProduct } from '@/types/strapi.types';
 import HorizontalCardSkeleton from '@/components/simple/HorizontalCardSkeleton';

@@ -2,11 +2,11 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 import ShopLayout from '@/components/layout/Shop/index';
-import ShopService from '@/modules/services/shop.service';
+import ShopService from 'common/services/shop.service';
 import { TStrapiContentItem, TStrapiProduct } from '@/types/strapi.types';
 import ShoppingCard from '@/components/simple/ShoppingCard';
 import { RightOutlined } from '@ant-design/icons';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 
 const SklepHome = ({ products, shopIntro }: { products: TStrapiContentItem<TStrapiProduct>[]; shopIntro: string }) => {
   return (

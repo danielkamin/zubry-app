@@ -1,7 +1,7 @@
 import Header from '@/components/simple/Header';
 import Layout from '@/components/layout/Main/index';
 import Sponsor from '@/components/page/Sponsors/Sponsor';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 import { TStrapiContentItem, TStrapiSponsor } from '@/types/strapi.types';
 
 const Sponsors = ({ sponsors }: { sponsors: TStrapiContentItem<TStrapiSponsor>[] }) => {

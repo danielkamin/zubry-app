@@ -1,7 +1,6 @@
 import qs from 'qs';
 
-import cmsAxiosInstance from '@/modules/axios/cmsAxios';
-import publicAxiosInstance from '@/modules/axios/publicAxios';
+import { cmsAxiosInstance, publicAxiosInstance } from '@/utils/axios';
 import { TMainPageService } from '@/types/services.types';
 import { TStrapiArrayResponse, TStrapiPlayer, TStrapiSponsor } from '@/types/strapi.types';
 
@@ -341,7 +340,6 @@ const MainPageService: TMainPageService = {
     );
     try {
       const { data } = await cmsAxiosInstance.get(`/galeria?${query}`);
-      console.log(data.data.attributes.Categories);
       return { status: true, result: data };
     } catch (err) {
       console.error(err);

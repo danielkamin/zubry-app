@@ -39,7 +39,7 @@
         "common/types/*"
       ],
       "@/tracking/*": [
-        "modules/tracking/*"
+        "common/tracking/*"
       ]
     },
     "allowJs": true,

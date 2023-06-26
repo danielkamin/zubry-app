@@ -1,5 +1,5 @@
 import Layout from '@/components/layout/Main/index';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 import BasicArticle from '@/components/complex/BasicArticle';
 const CookiePolicy = ({ cookieConsentRegulations }) => {
   return (

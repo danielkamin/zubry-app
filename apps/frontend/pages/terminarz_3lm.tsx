@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import Layout from '@/components/layout/Main/index';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 import StandingsYouth from '@/components/simple/StandingsYouth';
 import ScheduleItemYouth from '@/components/simple/ScheduleItemYouth';
 import Tabs from '@/components/complex/Tabs';

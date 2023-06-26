@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import Header from '@/components/simple/Header';
 import Layout from '@/components/layout/Main/index';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 import Player from '@/components/simple/Player';
 import Coach from '@/components/simple/Coach';
 import { PickGridCols } from '@/utils/helpers';

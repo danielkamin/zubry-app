@@ -1,5 +1,5 @@
-import { useAlertContext } from '@/modules/store/alert.context';
-import useCartStore from '@/modules/store/shop.store';
+import { useAlertContext } from 'common/store/alert.context';
+import useCartStore from 'common/store/shop.store';
 import AddProductForm from '../forms/AddProductForm';
 import Zoom from 'react-medium-image-zoom';
 import { TStrapiContentItem, TStrapiProduct } from '@/types/strapi.types';

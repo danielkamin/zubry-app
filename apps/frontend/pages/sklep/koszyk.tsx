@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import ShopLayout from '@/components/layout/Shop/index';
-import useCartStore from '@/modules/store/shop.store';
+import useCartStore from 'common/store/shop.store';
 import NewButton from '@/components/simple/NewButton';
 import ProductsStoreSummary from '@/components/complex/ProductsStoreSummary';
 

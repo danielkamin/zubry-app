@@ -4,7 +4,7 @@ import ShopLayout from '@/components/layout/Shop/index';
 import AccountSection from '@/components/page/Account/AccountSection';
 import { TStrapiContentItem, TStrapiOrder } from '@/types/strapi.types';
 import AccountOrderTable from '@/components/page/Account/AccountOrderTable';
-import ShopService from '@/modules/services/shop.service';
+import ShopService from 'common/services/shop.service';
 import { TSession } from '@/types/common.types';
 
 const MyOrders = ({ orders }: { orders: TStrapiContentItem<TStrapiOrder>[] }) => {

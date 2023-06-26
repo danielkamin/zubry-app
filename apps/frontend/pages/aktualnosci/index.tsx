@@ -5,7 +5,7 @@ import NewsSearch from '@/components/page/Aktualnosci/NewsSearch';
 import NewsCard from '@/components/page/Aktualnosci/NewsCard';
 import NewsPaginate from '@/components/page/Aktualnosci/NewsPaginate';
 import Layout from '@/components/layout/Main/index';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 import ServerError from '../500';
 import { TStrapiArrayResponse, TStrapiArticle } from '@/types/strapi.types';
 

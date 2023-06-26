@@ -7,8 +7,8 @@ import { SessionProvider } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
 
-import * as gtag from '@/tracking/gtag';
-import * as fbp from '@/tracking/fbpixel';
+import * as gtag from 'common/tracking/gtag';
+import * as fbp from 'common/tracking/fbpixel';
 
 import '@/styles/globals.css';
 import '@/styles/navbar.css';
@@ -17,7 +17,7 @@ import '@/styles/image-gallery.css';
 import '@/styles/product.css';
 import 'react-medium-image-zoom/dist/styles.css';
 
-import { AlertProvider } from '@/modules/store/alert.context';
+import { AlertProvider } from 'common/store/alert.context';
 
 type GetLayout = (page: ReactNode) => ReactNode;
 type Page<P = {}, IP = P> = NextPage<P, IP> & {

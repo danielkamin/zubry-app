@@ -1,10 +1,12 @@
 {
   "name": "zubry-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Repository for Żubry Białystok Webpage and CMS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:ui": "cd ./apps/frontend/ && npm run dev",
+    "dev:cms": "cd ./apps/backend/ && npm run develop",
+    "develop:services": "sudo -- sh -c 'service nginx start; service postgresql start'"
   },
   "keywords": [],
   "author": "",

@@ -1,6 +1,5 @@
 import { TUserService } from '@/types/services.types';
-import cmsAxiosInstance from '../axios/cmsAxios';
-import publicAxiosInstance from '../axios/publicAxios';
+import { cmsAxiosInstance, publicAxiosInstance } from '@/utils/axios';
 
 const UserService: TUserService = {
   registerAccount: async (data) => {
@@ -12,7 +11,7 @@ const UserService: TUserService = {
       });
       return { status: true, result: 'Poprawnie utworzono konto. Możesz się teraz zalogować.' };
     } catch (err) {
-      console.log(err);
+      console.error(err);
       return { status: false, result: 'Coś poszło nie tak. Skontaktuj się z administratorem.' };
     }
   },

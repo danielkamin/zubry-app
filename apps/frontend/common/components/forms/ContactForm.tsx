@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { LoadingOutlined } from '@ant-design/icons';
 
-import { useAlertContext } from '@/modules/store/alert.context';
+import { useAlertContext } from 'common/store/alert.context';
 import FormInput from '@/components/forms/Fields/FormInput';
 import Button from '@/components/simple/Button';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 
 const ContactForm = () => {
   const alertContext = useAlertContext();

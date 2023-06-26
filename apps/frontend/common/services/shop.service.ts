@@ -1,9 +1,8 @@
 import qs from 'qs';
 
 import { TShopService } from '@/types/services.types';
-import cmsAxiosInstance from '../axios/cmsAxios';
+import { cmsAxiosInstance, publicAxiosInstance } from '@/utils/axios';
 import { getPopulateUserQuery } from '@/utils/helpers';
-import publicAxiosInstance from '../axios/publicAxios';
 import { getDateOnly } from '@/utils/helpers';
 import { TStrapiObjectResponse, TStrapiProduct } from '@/types/strapi.types';
 import { TCreateOrderForm, TSession } from '@/types/common.types';
@@ -112,7 +111,7 @@ const ShopService: TShopService = {
       const { data } = await cmsAxiosInstance.get(`/produkts?${queryStringified}`);
       return { status: true, result: data };
     } catch (err) {
-      console.log(err);
+      console.error(err);
       return { status: true, result: [] };
     }
   },
@@ -126,7 +125,7 @@ const ShopService: TShopService = {
       const { data } = await cmsAxiosInstance.get(`/produkts/${slicedSlug}?populate=*`);
       return { status: true, result: data };
     } catch (err) {
-      console.log(err);
+      console.error(err);
       return { status: true, result: null };
     }
   },
@@ -152,7 +151,7 @@ const ShopService: TShopService = {
       );
       return { status: true, result: data };
     } catch (err) {
-      console.log(err);
+      console.error(err);
       return { status: false, result: null };
     }
   },
@@ -177,7 +176,7 @@ const ShopService: TShopService = {
       );
       return { status: true, result: data.data };
     } catch (err) {
-      console.log(err);
+      console.error(err);
       return { status: false, result: null };
     }
   },
@@ -224,7 +223,7 @@ const ShopService: TShopService = {
       const { data } = await cmsAxiosInstance.get(`/zamowienies`);
       return { status: true, result: data };
     } catch (err) {
-      console.log(err);
+      console.error(err);
       return { status: false, result: null };
     }
   },
@@ -235,7 +234,7 @@ const ShopService: TShopService = {
       );
       return { status: true, result: `/strapi${data.data.attributes.Image.data.attributes.url}` };
     } catch (err) {
-      console.log(err);
+      console.error(err);
       return { status: false, result: null };
     }
   },
@@ -300,7 +299,7 @@ const ShopService: TShopService = {
       });
       return { status: false, result: data };
     } catch (err) {
-      console.log(err);
+      console.error(err);
       return { status: false, result: null };
     }
   },
@@ -314,7 +313,7 @@ const ShopService: TShopService = {
       });
       return { status: false, result: data };
     } catch (err) {
-      console.log(err);
+      console.error(err);
       return { status: false, result: null };
     }
   },

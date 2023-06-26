@@ -2,7 +2,7 @@ import create from 'zustand';
 import { persist } from 'zustand/middleware';
 
 import { TStrapiGlobalSettings } from '@/types/strapi.types';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 type TGlobalStore = {
   settings: TStrapiGlobalSettings | null;
   loading: boolean;

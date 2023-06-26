@@ -2,7 +2,7 @@ import { Parser } from 'html-to-react';
 import edjsHTML from 'editorjs-html';
 
 import Layout from '@/components/layout/Main/index';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 import Coach from '@/components/simple/Coach';
 import Header from '@/components/simple/Header';
 import {

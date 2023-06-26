@@ -1,7 +1,7 @@
 import { getSession } from 'next-auth/react';
 
 import ShopLayout from '@/components/layout/Shop/index';
-import ShopService from '@/modules/services/shop.service';
+import ShopService from 'common/services/shop.service';
 import AccountOrderInfo from '@/components/page/Account/AccountOrderInfo';
 import Link from 'next/link';
 import { TSession } from '@/types/common.types';

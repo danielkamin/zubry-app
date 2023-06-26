@@ -1,7 +1,7 @@
 import ShopLayout from '@/components/layout/Shop/index';
 import AccountDrawer from '@/components/page/Account/AccountSidebar';
 import { getSession } from 'next-auth/react';
-import ShopService from '@/modules/services/shop.service';
+import ShopService from 'common/services/shop.service';
 import { TStrapiComplaint, TStrapiContentItem } from '@/types/strapi.types';
 import { TSession } from '@/types/common.types';
 

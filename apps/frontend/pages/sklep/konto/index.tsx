@@ -3,7 +3,7 @@ import { NextPageContext } from 'next';
 
 import ShopLayout from '@/components/layout/Shop/index';
 import AccountSection from '@/components/page/Account/AccountSection';
-import UserService from '@/modules/services/user.service';
+import UserService from 'common/services/user.service';
 import { TStrapiUser } from '@/types/strapi.types';
 import { TSession } from '@/types/common.types';
 

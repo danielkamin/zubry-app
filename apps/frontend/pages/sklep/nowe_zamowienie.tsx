@@ -2,10 +2,10 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
 import ShopLayout from '@/components/layout/Shop/index';
-import useCartStore from '@/modules/store/shop.store';
+import useCartStore from 'common/store/shop.store';
 import NewOrderForm from '@/components/forms/NewOrderForm';
-import ShopService from '@/modules/services/shop.service';
-import { useAlertContext } from '@/modules/store/alert.context';
+import ShopService from 'common/services/shop.service';
+import { useAlertContext } from 'common/store/alert.context';
 import ProductsStoreSummary from '@/components/complex/ProductsStoreSummary';
 import { TSession } from '@/types/common.types';
 

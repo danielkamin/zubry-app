@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import PzkoszApiService from '@/modules/services/pzkosz.service';
+import PzkoszApiService from 'common/services/pzkosz.service';
 
 export default async function latestGame(req: NextApiRequest, res: NextApiResponse) {
   const pzkoszApiService = await PzkoszApiService.getInstance();

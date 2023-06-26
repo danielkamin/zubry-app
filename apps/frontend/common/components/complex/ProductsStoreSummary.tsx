@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { DeleteOutlined } from '@ant-design/icons';
-import useCartStore from '@/modules/store/shop.store';
-import { useAlertContext } from '@/modules/store/alert.context';
+import useCartStore from 'common/store/shop.store';
+import { useAlertContext } from 'common/store/alert.context';
 
 interface IProductsFromStoreListProps {
   readOnly: boolean;

@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
-import MainPageService from '@/modules/services/main.service';
-import PzkoszApiService from '@/modules/services/pzkosz.service';
+import MainPageService from 'common/services/main.service';
+import PzkoszApiService from 'common/services/pzkosz.service';
 import { pzKoszMainUrl } from 'common/utils/constants';
 import Header from '@/components/simple/Header';
 import ScheduleItem from '@/components/simple/ScheduleItem';

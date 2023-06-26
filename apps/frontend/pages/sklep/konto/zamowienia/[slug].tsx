@@ -1,8 +1,8 @@
 import { getSession, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
-import { useAlertContext } from '@/modules/store/alert.context';
-import ShopService from '@/modules/services/shop.service';
+import { useAlertContext } from 'common/store/alert.context';
+import ShopService from 'common/services/shop.service';
 import ShopLayout from '@/components/layout/Shop/index';
 import { TSession } from '@/types/common.types';
 import AccountOrderInfo from '@/components/page/Account/AccountOrderInfo';

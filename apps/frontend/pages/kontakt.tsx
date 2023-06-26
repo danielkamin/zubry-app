@@ -5,7 +5,7 @@ import { MessageOutlined } from '@ant-design/icons';
 import Layout from '@/components/layout/Main/index';
 import ContactForm from '@/components/forms/ContactForm';
 import ContactInfo from '@/components/page/Kontakt/ContactInfo';
-import MainPageService from '@/modules/services/main.service';
+import MainPageService from 'common/services/main.service';
 import { TStrapiContactData } from '@/types/strapi.types';
 const Contact = ({ contactData }: { contactData: TStrapiContactData }) => {
   return (
