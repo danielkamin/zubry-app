@@ -19,7 +19,7 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
           script: |
-            cd ~/zubry-apps
+            cd ~/zubry-app
             git restore .
             git pull origin main
             export NVM_DIR=~/.nvm
@@ -27,7 +27,7 @@ jobs:
             git status
             cd ~/zubry-app/apps/backend
             npm install
-            yarn build --no-optimization
+            npm run build
             pm2 restart CMS
 
   build-client:
