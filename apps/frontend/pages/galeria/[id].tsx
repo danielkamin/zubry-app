@@ -8,7 +8,7 @@ const CategoryImages = ({ category }: { category: TStrapiGalleryCategory }) => {
   return (
     <section>
       <Header title={category.Title} />
-      <GridGallery images={category.Images.data} />
+      <GridGallery images={category.Images.data.reverse()} />
     </section>
   );
 };
