@@ -22,7 +22,7 @@ const ImageGallery = ({ categories }: { categories: TStrapiClubGallery }) => {
       <Header title={'Nasza Galeria'} />
       <section className="flex justify-center">
         <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
-          {categories.Categories.reverse().map((cat) => (
+          {categories.Categories.map((cat) => (
             <Link href={`/galeria/${cat.id}`} key={cat.id}>
               <a className="group w-72 ">
                 <div className="aspect-w-1 aspect-h-1 h-72 overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 relative">
@@ -52,9 +52,12 @@ const ImageGallery = ({ categories }: { categories: TStrapiClubGallery }) => {
 
 export async function getStaticProps() {
   const { result } = await MainPageService.getPhotoGalleryCategories();
+  const sortedCategories: TStrapiClubGallery = result.data
+    ? { ...result.data.attributes, Categories: result.data.attributes.Categories.reverse() }
+    : null;
   return {
     props: {
-      categories: result.data ? result.data.attributes : null
+      categories: sortedCategories
     },
     revalidate: 60
   };
