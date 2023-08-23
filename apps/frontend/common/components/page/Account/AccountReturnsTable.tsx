@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import { goToPath } from '@/utils/helpers';
+import { goToPath } from '@/utils';
 import { TStrapiContentItem, TStrapiReturn } from '@/types/strapi.types';
 
 const AccountReturnsTable = ({ returns }: { returns: TStrapiContentItem<TStrapiReturn>[] }) => {

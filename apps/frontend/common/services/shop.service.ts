@@ -1,9 +1,7 @@
 import qs from 'qs';
 
 import { TShopService } from '@/types/services.types';
-import { cmsAxiosInstance, publicAxiosInstance } from '@/utils/axios';
-import { getPopulateUserQuery } from '@/utils/helpers';
-import { getDateOnly } from '@/utils/helpers';
+import { cmsAxiosInstance, publicAxiosInstance, getPopulateUserQuery, getDateOnly } from '@/utils';
 import { TStrapiObjectResponse, TStrapiProduct } from '@/types/strapi.types';
 import { TCreateOrderForm, TSession } from '@/types/common.types';
 

@@ -26,9 +26,9 @@ const ImageGallery = ({ categories }: { categories: TStrapiClubGallery }) => {
             <Link href={`/galeria/${cat.id}`} key={cat.id}>
               <a className="group w-72 ">
                 <div className="aspect-w-1 aspect-h-1 h-72 overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 relative">
-                  {cat.Images.data ? (
+                  {cat.Thumbnail.data ? (
                     <Image
-                      src={`/strapi${cat.Images.data[0].attributes.formats.medium.url}`}
+                      src={`/strapi${cat.Thumbnail.data.attributes.formats.medium.url}`}
                       alt={cat.Title}
                       fill
                       className="group-hover:opacity-75 object-cover"
@@ -40,7 +40,6 @@ const ImageGallery = ({ categories }: { categories: TStrapiClubGallery }) => {
                   )}
                 </div>
                 <h3 className="mt-4 text-lg font-medium text-gray-800 two-line-clamp">{cat.Title}</h3>
-                <p className="text-base text-gray-700">{cat.Images.data ? cat.Images.data.length : 0} zdjęć</p>
               </a>
             </Link>
           ))}
@@ -57,7 +56,10 @@ export async function getStaticProps() {
     : null;
   return {
     props: {
-      categories: sortedCategories
+      categories: {
+        Categories: sortedCategories.Categories,
+        Preview: null
+      }
     },
     revalidate: 60
   };

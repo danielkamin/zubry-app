@@ -22,7 +22,7 @@ export default function Schedule({ leagueId, seasonId, leaderBoard, ourGames }) 
         <Header title={'Tabela i Terminarz - 2 liga'} />
         {/* <div className="flex justify-center mb-12">
           <Link href="/playoff_2lm">
-            <a className="text-gray-700 text-2xl flex gap-4 items-center hover:text-primary transition-colors">
+            <a className="text-gray-700 text-2xl flex gap-4 items-center hover:text-primary-6 transition-colors">
               <h3>PLAY-OFF</h3>
               <RightOutlined />
             </a>

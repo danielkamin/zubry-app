@@ -4,7 +4,7 @@ import Player from '@/components/simple/Player';
 import Header from '@/components/simple/Header';
 import Layout from '@/components/layout/Main/index';
 import Coach from '@/components/simple/Coach';
-import { PickGridCols } from '@/utils/helpers';
+import { PickGridCols } from '@/utils';
 import MainPageService from 'common/services/main.service';
 import { TStrapiArrayResponse, TStrapiCoach, TStrapiPlayer } from '@/types/strapi.types';
 

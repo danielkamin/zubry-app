@@ -1,5 +1,5 @@
 import { TUserService } from '@/types/services.types';
-import { cmsAxiosInstance, publicAxiosInstance } from '@/utils/axios';
+import { cmsAxiosInstance, publicAxiosInstance } from '@/utils';
 
 const UserService: TUserService = {
   registerAccount: async (data) => {

@@ -1,6 +1,6 @@
 import qs from 'qs';
 
-import { cmsAxiosInstance, publicAxiosInstance } from '@/utils/axios';
+import { cmsAxiosInstance, publicAxiosInstance } from '@/utils';
 import { TMainPageService } from '@/types/services.types';
 import { TStrapiArrayResponse, TStrapiPlayer, TStrapiSponsor } from '@/types/strapi.types';
 
@@ -27,7 +27,7 @@ const MainPageService: TMainPageService = {
       const { data } = await cmsAxiosInstance.get(requestUrl);
       return { status: true, result: data };
     } catch (err) {
-      console.error(err);
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   },
@@ -36,7 +36,7 @@ const MainPageService: TMainPageService = {
       const { data } = await cmsAxiosInstance.get(`/artykuls/${slug}`);
       return { status: true, result: data };
     } catch (err) {
-      console.error(err);
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   },
@@ -47,7 +47,7 @@ const MainPageService: TMainPageService = {
       const { data } = await cmsAxiosInstance(baseUrl);
       return { status: true, result: data.meta.pagination.total };
     } catch (err) {
-      console.error(err);
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: 0 };
     }
   },
@@ -65,7 +65,7 @@ const MainPageService: TMainPageService = {
       const { data } = await cmsAxiosInstance.get('/artykuls?_publicationState=live');
       return { status: true, result: data };
     } catch (err) {
-      console.error(err);
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { result: null, status: false };
     }
   },
@@ -88,7 +88,7 @@ const MainPageService: TMainPageService = {
       });
       return { status: true, result: null };
     } catch (err) {
-      console.error(err);
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   },
@@ -111,7 +111,7 @@ const MainPageService: TMainPageService = {
         result: data
       };
     } catch (err) {
-      console.error(err.response);
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   },
@@ -120,6 +120,7 @@ const MainPageService: TMainPageService = {
       const { data } = await cmsAxiosInstance.get('/polityka-cookie');
       return { status: true, result: data };
     } catch (err) {
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   },
@@ -128,6 +129,7 @@ const MainPageService: TMainPageService = {
       const { data } = await cmsAxiosInstance.get('/podatek-1-5?populate=Image');
       return { status: true, result: data };
     } catch (err) {
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   },
@@ -150,6 +152,7 @@ const MainPageService: TMainPageService = {
       const { data } = await cmsAxiosInstance.get(`/tabela-3-lms?${queryString}`);
       return { status: true, result: data };
     } catch (err) {
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   },
@@ -190,6 +193,7 @@ const MainPageService: TMainPageService = {
       );
       return { status: true, result: data };
     } catch (err) {
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   },
@@ -209,6 +213,7 @@ const MainPageService: TMainPageService = {
       );
       return { status: true, result: data };
     } catch (err) {
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   },
@@ -226,6 +231,7 @@ const MainPageService: TMainPageService = {
       const { data } = await cmsAxiosInstance.get(`/zawodnicy-2-lms/${slicedSlug}?${query}`);
       return { status: true, result: data };
     } catch (err) {
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   },
@@ -243,6 +249,7 @@ const MainPageService: TMainPageService = {
       const { data } = await cmsAxiosInstance.get(`/trenerzy-3-lms?${queryString}`);
       return { status: true, result: data };
     } catch (err) {
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   },
@@ -260,6 +267,7 @@ const MainPageService: TMainPageService = {
       const { data } = await cmsAxiosInstance.get(`/trenerzy-2-lms?${queryString}`);
       return { status: true, result: data };
     } catch (err) {
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   },
@@ -280,7 +288,7 @@ const MainPageService: TMainPageService = {
       );
       return { status: true, result: data };
     } catch (err) {
-      console.error(err.toJSON().message);
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   },
@@ -289,7 +297,7 @@ const MainPageService: TMainPageService = {
       const { data } = await cmsAxiosInstance.get(`/zarzad-klubu-informacje`);
       return { status: true, result: data };
     } catch (err) {
-      console.error(err.toJSON().message);
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   },
@@ -307,11 +315,14 @@ const MainPageService: TMainPageService = {
       const { data } = await cmsAxiosInstance.get(`/zarzads?${queryString}`);
       return { status: true, result: data };
     } catch (err) {
-      console.error(err);
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   },
   getPhotoGalleryCategories: async (id) => {
+    const categoriesPopulation = ['Thumbnail'];
+    if (id) categoriesPopulation.push('Image_With_Tags');
+
     const query = qs.stringify(
       {
         populate: {
@@ -320,7 +331,15 @@ const MainPageService: TMainPageService = {
             //https://github.com/strapi/strapi/pull/16139
             //change after updating
             sort: ['id:desc'],
-            populate: '*',
+            populate: {
+              Thumbnail: true,
+              Images: true,
+              Image_With_Tags: id
+                ? {
+                    populate: '*'
+                  }
+                : false
+            },
             filters: id
               ? {
                   id: {
@@ -342,7 +361,30 @@ const MainPageService: TMainPageService = {
       const { data } = await cmsAxiosInstance.get(`/galeria?${query}`);
       return { status: true, result: data };
     } catch (err) {
-      console.error(err);
+      console.error(err.toJSON ? err.toJSON().message : err);
+      return { status: false, result: null };
+    }
+  },
+  getPhotosByCaptionFromGallery: async (caption) => {
+    if (!caption) return { status: true, result: null };
+
+    const query = qs.stringify(
+      {
+        filters: {
+          caption: {
+            $contains: caption
+          }
+        }
+      },
+      {
+        encodeValuesOnly: true
+      }
+    );
+    try {
+      const { data } = await cmsAxiosInstance.get(`/upload/files?${query}`);
+      return { status: true, result: data };
+    } catch (err) {
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   },
@@ -360,7 +402,7 @@ const MainPageService: TMainPageService = {
       const { data } = await cmsAxiosInstance.get(`/ustawienia-ogolne?${queryString}`);
       return { status: true, result: data };
     } catch (err) {
-      console.error(err);
+      console.error(err.toJSON ? err.toJSON().message : err);
       return { status: false, result: null };
     }
   }

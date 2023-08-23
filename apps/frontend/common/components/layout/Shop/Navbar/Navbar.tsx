@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { UserOutlined, ShoppingCartOutlined, PoweroffOutlined } from '@ant-design/icons';
 import { signOut, useSession } from 'next-auth/react';
 import { useState } from 'react';
-import { isCurrentPath } from '@/utils/helpers';
+import { isCurrentPath } from '@/utils';
 import useCartStore from 'common/store/shop.store';
 
 const ShopNavbar = () => {

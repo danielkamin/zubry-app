@@ -1,4 +1,4 @@
-import { isCurrentPath } from '@/utils/helpers';
+import { isCurrentPath } from '@/utils';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 const AccountSidebar = () => {

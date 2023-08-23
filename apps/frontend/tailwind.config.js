@@ -4,7 +4,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#FFC800'
+        'primary-1': '#fffee6',
+        'primary-2': '#fff7a3',
+        'primary-3': '#fff07a',
+        'primary-4': '#ffe552',
+        'primary-5': '#ffd829',
+        'primary-6': '#ffc800',
+        'primary-7': '#d9a300',
+        'primary-8': '#b38000',
+        'primary-9': '#8c6000',
+        'primary-10': '#664200'
       },
       fontFamily: {
         open: "'Open Sans', sans-serif"

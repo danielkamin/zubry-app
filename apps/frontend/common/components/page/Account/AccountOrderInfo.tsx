@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import { TStrapiContentItem, TStrapiOrder } from '@/types/strapi.types';
-import { getOrderStatusText } from '@/utils/helpers';
+import { getOrderStatusText } from '@/utils';
 
 const AccountOrderInfo = ({ order }: { order: TStrapiContentItem<TStrapiOrder> }) => {
   const getOrderFullAmount = () => {

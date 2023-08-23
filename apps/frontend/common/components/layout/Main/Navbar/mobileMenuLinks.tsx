@@ -14,7 +14,7 @@ const MobileMenuLinks = () => {
       <div className="w-1/5 flex justify-center md:hidden">
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className={`text-gray-800 flex text-3xl focus:outline-none leading-none focus:ring-2 focus:ring-primary focus:border-transparent rounded p-1`}
+          className={`text-gray-800 flex text-3xl focus:outline-none leading-none focus:ring-2 focus:ring-primary-6 focus:border-transparent rounded p-1`}
         >
           <MenuOutlined />
         </button>

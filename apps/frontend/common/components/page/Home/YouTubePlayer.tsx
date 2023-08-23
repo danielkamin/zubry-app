@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import HorizontalCardSkeleton from '@/components/simple/HorizontalCardSkeleton';
 import SubHeader from '@/components/simple/SubHeader';
 import Button from '@/components/simple/Button';
-import { extractIdFromYoutubeUrl } from '@/utils/helpers';
+import { extractIdFromYoutubeUrl } from '@/utils';
 
 interface IYouTubePlayerProps {
   url: string;

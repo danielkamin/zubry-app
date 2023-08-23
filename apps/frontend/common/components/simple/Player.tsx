@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { FC } from 'react';
 
-import { calculateAge } from '@/utils/helpers';
+import { calculateAge } from '@/utils';
 import { PictureOutlined } from '@ant-design/icons';
 
 interface IPlayer {

@@ -26,7 +26,8 @@ import {
   TStrapiComplaint,
   TStrapiReturn,
   TStrapiGlobalSettings,
-  TStrapiTaxTransfer
+  TStrapiTaxTransfer,
+  TStrapiImageWithAdditionalInfo
 } from './strapi.types';
 
 //#region base
@@ -96,6 +97,7 @@ export type TMainPageService = {
   getZarzadMembers: () => TServiceResponse<TStrapiArrayResponse<TStrapiManagementMember> | null>;
   getPreviewPostBySlug: (slug: string) => TServiceResponse<TStrapiObjectResponse<TStrapiArticle>>;
   getPhotoGalleryCategories: (id?: string) => TServiceResponse<TStrapiObjectResponse<TStrapiClubGallery | null>>;
+  getPhotosByCaptionFromGallery: (searchQuery?: string) => TServiceResponse<TStrapiImageWithAdditionalInfo[] | null>;
   getGlobalSettings: () => TServiceResponse<TStrapiObjectResponse<TStrapiGlobalSettings> | null>;
   getTransferTax: () => TServiceResponse<TStrapiObjectResponse<TStrapiTaxTransfer> | null>;
 };

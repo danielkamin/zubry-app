@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 
 import { TStrapiContentItem, TStrapiOrder } from '@/types/strapi.types';
-import { getOrderStatusText, goToPath } from '@/utils/helpers';
+import { getOrderStatusText, goToPath } from '@/utils';
 
 const AccountOrderTable = ({ orders }: { orders: TStrapiContentItem<TStrapiOrder>[] }) => {
   const router = useRouter();

@@ -1,21 +1,11 @@
-import Zoom from 'react-medium-image-zoom';
-
-import { TStrapiBasicImage, TStrapiContentItem } from '@/types/strapi.types';
-const GridGallery = ({ images }: { images: TStrapiContentItem<TStrapiBasicImage>[] }) => {
+import { TStrapiImageWithAdditionalInfo } from '@/types/strapi.types';
+import ImageWithTags from './ImageWithTags';
+const GridGallery = ({ images }: { images: TStrapiImageWithAdditionalInfo[] }) => {
   return (
     <ul className="flex gap-3 my-12 flex-wrap justify-center">
       {images ? (
-        images.map((image, index) => (
-          <li key={index} className="relative h-96 w-auto player-gallery-item ">
-            <Zoom>
-              <img
-                className="rounded-xl"
-                src={`/strapi${image.attributes.url}`}
-                alt={image.attributes.name}
-                loading="lazy"
-              />
-            </Zoom>
-          </li>
+        images.map(({ caption, url, name }) => (
+          <ImageWithTags key={url} imageSrc={url} altName={name} tags={caption ? caption.split(',') : null} />
         ))
       ) : (
         <p className="text-gray-400 text-lg my-4 block text-center">Brak zdjęć do wyswietlenia...</p>

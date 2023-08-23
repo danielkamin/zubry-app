@@ -5,17 +5,9 @@ import Link from 'next/link';
 
 import Banner from '@/components/page/Home/Banner';
 import LastGame from '@/components/page/Home/LastGame';
-
-const ClubInfo = dynamic(() => import('@/components/page/Home/ClubInfo'));
-const LatestNews = dynamic(() => import('@/components/page/Home/LatestNews'));
-const YouTubePlayer = dynamic(() => import('@/components/page/Home/YouTubePlayer'));
-const GoogleMaps = dynamic(() => import('@/components/simple/GoogleMaps'));
-const PlayersSection = dynamic(() => import('@/components/page/Home/Players'));
-const ImagesRotator = dynamic(() => import('@/components/simple/ImagesRotator'));
-
 import Layout from '@/components/layout/Main/index';
-import { gymGoogleMapsIframeSrc } from 'common/utils/constants';
-import MainPageService from 'common/services/main.service';
+import HorizontalCardSkeleton from '@/components/simple/HorizontalCardSkeleton';
+import { gymGoogleMapsIframeSrc } from '@/utils';
 import {
   TStrapiArrayResponse,
   TStrapiArticle,
@@ -23,8 +15,26 @@ import {
   TStrapiImageWithFormats,
   TStrapiPlayer
 } from '@/types/strapi.types';
-import PzkoszApiService from 'common/services/pzkosz.service';
+import { PzkoszApiService, MainPageService } from '@/services';
 
+const ClubInfo = dynamic(() => import('@/components/page/Home/ClubInfo'), {
+  loading: () => <HorizontalCardSkeleton />
+});
+const LatestNews = dynamic(() => import('@/components/page/Home/LatestNews'), {
+  loading: () => <HorizontalCardSkeleton />
+});
+const YouTubePlayer = dynamic(() => import('@/components/page/Home/YouTubePlayer'), {
+  loading: () => <HorizontalCardSkeleton />
+});
+const GoogleMaps = dynamic(() => import('@/components/simple/GoogleMaps'), {
+  loading: () => <HorizontalCardSkeleton />
+});
+const PlayersSection = dynamic(() => import('@/components/page/Home/Players'), {
+  loading: () => <HorizontalCardSkeleton />
+});
+const ImagesRotator = dynamic(() => import('@/components/simple/ImagesRotator'), {
+  loading: () => <HorizontalCardSkeleton />
+});
 interface IHomePageProps {
   latestNews: TStrapiArrayResponse<TStrapiArticle>;
   youtubeGameUrl: string;

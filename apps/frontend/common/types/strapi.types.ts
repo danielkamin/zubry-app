@@ -25,6 +25,16 @@ export type TStrapiImageWithFormats = {
     thumbnail: TStrapiBasicImage;
   };
 } & TStrapiBasicImage;
+
+export type TStrapiImageWithAdditionalInfo = {
+  caption?: string;
+  alternativeText?: string;
+  mime: string;
+  ext: string;
+  hash: string;
+  size: number;
+} & TStrapiImageWithFormats;
+
 export type TStrapiMeta = {
   pagination: {
     page: number;
@@ -52,10 +62,10 @@ export type TStrapiPlayer = {
   Info: string;
   Height: number;
   Photo: {
-    data: TStrapiContentItem<TStrapiBasicImage>;
+    data: TStrapiContentItem<TStrapiImageWithAdditionalInfo>;
   };
   Images: {
-    data: TStrapiContentItem<TStrapiBasicImage>[];
+    data: TStrapiContentItem<TStrapiImageWithAdditionalInfo>[];
   };
   Average_Points: number;
   Average_Rebounds: number;
@@ -142,14 +152,18 @@ export type TStrapiGalleryCategory = {
   id: number;
   __component: string;
   Title: string;
-  Images: {
-    data: TStrapiContentItem<TStrapiImageWithFormats>[];
+  Images?: {
+    data: TStrapiContentItem<TStrapiImageWithAdditionalInfo>[];
+  };
+  Thumbnail: {
+    data: TStrapiContentItem<TStrapiImageWithAdditionalInfo>;
   };
 };
+
 export type TStrapiClubGallery = {
   Categories: TStrapiGalleryCategory[];
   Preview: {
-    data: TStrapiContentItem<TStrapiBasicImage>[];
+    data: TStrapiContentItem<TStrapiImageWithAdditionalInfo>[];
   };
 };
 export type TStrapiProduct = {

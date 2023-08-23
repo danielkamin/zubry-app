@@ -6,7 +6,7 @@ import edjsHTML from 'editorjs-html';
 import Layout from '@/components/layout/Main/index';
 import Header from '@/components/simple/Header';
 import GridGallery from '@/components/simple/GridGallery';
-import { calculateAge } from '@/utils/helpers';
+import { calculateAge } from '@/utils';
 import MainPageService from 'common/services/main.service';
 import HorizontalCardSkeleton from '@/components/simple/HorizontalCardSkeleton';
 import { TStrapiPlayer } from '@/types/strapi.types';
@@ -106,7 +106,7 @@ const PlayerDetails = ({ player }: { player: TStrapiPlayer & { id: number } }) =
               </article>
             </div>
           )}
-          <GridGallery images={player.Images.data} />
+          <GridGallery images={player.Images.data.map((i) => i.attributes)} />
         </section>
       )}
     </>

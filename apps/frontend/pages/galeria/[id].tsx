@@ -8,7 +8,11 @@ const CategoryImages = ({ category }: { category: TStrapiGalleryCategory }) => {
   return (
     <section>
       <Header title={category.Title} />
-      <GridGallery images={category.Images.data.reverse()} />
+      {category.Images.data.length > 0 ? (
+        <GridGallery images={category.Images.data.map((image) => image.attributes)} />
+      ) : (
+        <p className="text-gray-400 text-lg my-4 block text-center">Brak zdjęć w tej galerii...</p>
+      )}
     </section>
   );
 };
