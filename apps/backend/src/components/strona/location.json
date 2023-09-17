@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_strona_locations",
+  "info": {
+    "displayName": "Location",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Iframe_Src": {
+      "type": "text",
+      "required": false
+    }
+  }
+}

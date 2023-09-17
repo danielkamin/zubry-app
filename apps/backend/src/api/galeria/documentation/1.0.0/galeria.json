@@ -7,7 +7,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/GaleriaListResponse"
+                "$ref": "#/components/schemas/GaleriaResponse"
               }
             }
           }

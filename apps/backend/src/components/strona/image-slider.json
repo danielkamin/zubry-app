@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_strona_image_sliders",
+  "info": {
+    "displayName": "Image slider",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Preview": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

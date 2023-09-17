@@ -7,7 +7,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PolitykaReklamacjiListResponse"
+                "$ref": "#/components/schemas/PolitykaReklamacjiResponse"
               }
             }
           }

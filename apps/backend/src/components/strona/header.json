@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_strona_headers",
+  "info": {
+    "displayName": "Image with description",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Description": {
+      "type": "text",
+      "required": true
+    },
+    "Picture": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Is_Banner": {
+      "type": "boolean",
+      "default": true
+    },
+    "Redirect_Url": {
+      "type": "string"
+    }
+  }
+}

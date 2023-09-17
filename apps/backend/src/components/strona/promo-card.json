@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_strona_promo_cards",
+  "info": {
+    "displayName": "Promo card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Picture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Redirect_Url": {
+      "type": "string"
+    },
+    "Video_Url": {
+      "type": "string"
+    }
+  }
+}

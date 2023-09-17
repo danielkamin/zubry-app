@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_strona_contact_forms",
+  "info": {
+    "displayName": "Contact form"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

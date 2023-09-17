@@ -14,9 +14,7 @@
   "attributes": {
     "Table": {
       "type": "dynamiczone",
-      "components": [
-        "rozgrywki.position"
-      ]
+      "components": ["rozgrywki.position"]
     },
     "Stage_Name": {
       "type": "string"

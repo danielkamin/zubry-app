@@ -7,7 +7,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Podatek15ListResponse"
+                "$ref": "#/components/schemas/Podatek15Response"
               }
             }
           }

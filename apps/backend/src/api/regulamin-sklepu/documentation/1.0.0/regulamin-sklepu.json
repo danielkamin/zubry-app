@@ -7,7 +7,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RegulaminSklepuListResponse"
+                "$ref": "#/components/schemas/RegulaminSklepuResponse"
               }
             }
           }

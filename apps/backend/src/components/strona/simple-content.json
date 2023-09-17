@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_strona_simple_contents",
+  "info": {
+    "displayName": "Simple content"
+  },
+  "options": {},
+  "attributes": {
+    "Content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}
