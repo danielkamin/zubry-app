@@ -2,7 +2,6 @@
 import axios from 'axios';
 import useSWR from 'swr';
 import Button from '@/components/simple/Button';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const LastGame = () => {
