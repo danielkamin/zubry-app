@@ -26,12 +26,13 @@ function getPlayerStatistics(playerId, requestParams) {
 async function getRequestRequiredSearchParams(strapi) {
   const searchParams = new URLSearchParams();
   try {
-    const pzkoszConfig = await strapi.entityService.findMany('api::ustawienia-pz-kosz.ustawienia-pz-kosz');
+    const { settings } = await strapi.entityService.findMany('api::ustawienia-pz-kosz.ustawienia-pz-kosz');
+    if (!settings) throw new Error('Pzkosz settings not found!');
     searchParams.append('key', process.env.PZKOSZ_API_KEY);
-    searchParams.append('leagueId', pzkoszConfig.League_Id);
-    searchParams.append('seasonid', pzkoszConfig.Season_Id);
-    searchParams.append('groupid', pzkoszConfig.Group_Id);
-    searchParams.append('teamid', pzkoszConfig.Team_Id);
+    searchParams.append('leagueId', settings.leagueId);
+    searchParams.append('seasonid', settings.seasonId);
+    searchParams.append('groupid', settings.groupId);
+    searchParams.append('teamid', settings.teamId);
     return searchParams;
   } catch (err) {
     console.error(err);
@@ -48,13 +49,12 @@ module.exports = async (strapi) => {
     const playersResponse = await getPlayers(baseApiRequestParams);
 
     if (playersResponse.data && playersResponse.data.length) {
-      playersResponse.data.forEach(async (p) => {
-        const { data } = await getPlayerStatistics(p.id, baseApiRequestParams);
-
-        const player = players.find((player) => {
+      playersResponse.data.forEach(async (r) => {
+        const { data } = await getPlayerStatistics(r.id, baseApiRequestParams);
+        const player = players.find((p) => {
           if (data[0]?.nazwisko.includes('-'))
-            return player.Last_Name.toLowerCase().includes(data[0]?.nazwisko.split('-')[0].toLowerCase());
-          else return player.Last_Name.toLowerCase().includes(data[0]?.nazwisko.toLowerCase());
+            return p.Last_Name.toLowerCase().includes(data[0]?.nazwisko.split('-')[0].trim().toLowerCase());
+          else return p.Last_Name.toLowerCase().includes(data[0]?.nazwisko.trim().toLowerCase());
         });
 
         if (player) {

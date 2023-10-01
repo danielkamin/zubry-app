@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "Number": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "First_Name": {
       "type": "string"
@@ -22,7 +23,8 @@
       "type": "string"
     },
     "Birthday": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "Position": {
       "type": "string"

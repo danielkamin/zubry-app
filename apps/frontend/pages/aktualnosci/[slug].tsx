@@ -37,7 +37,7 @@ const SingleNews = ({
             <p className="text-xl font-semibold mb-4">Inne aktualności:</p>
             <div className="grid container mx-auto xl:grid-cols-3 md:grid-cols-2 gap-16 gird-cols-1">
               {additionalNews.data.map((article) => {
-                return <NewsCard key={article.id} article={article.attributes} id={article.id} size="small" />;
+                return <NewsCard key={article.id} article={article.attributes} id={article.id} />;
               })}
             </div>
           </div>

@@ -17,7 +17,7 @@ const LatestNews = ({ latestNews }: { latestNews: TStrapiArrayResponse<TStrapiAr
       {latestNews && latestNews.data.length > 0 ? (
         <div className="mx-auto flex flex-wrap justify-center gap-10 z-10 lg:justify-between">
           {latestNews.data.map((news) => (
-            <NewsCard article={news.attributes} id={news.id} size="small" key={news.id} />
+            <NewsCard article={news.attributes} id={news.id} key={news.id} />
           ))}
         </div>
       ) : (

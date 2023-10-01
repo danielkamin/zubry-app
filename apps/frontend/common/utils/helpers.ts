@@ -12,6 +12,7 @@ export function PickGridCols(count) {
 }
 
 export const calculateAge = (birthday, dateFormat = 'dd.MM.yyyy') => {
+  if (!birthday) return '';
   const paredDate = parse(birthday, dateFormat, new Date());
   const age = differenceInYears(new Date(), paredDate);
 

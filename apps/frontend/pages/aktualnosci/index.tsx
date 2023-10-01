@@ -37,7 +37,7 @@ const News = ({
       <NewsSearch />
       <div className="mx-auto gap-16 flex flex-wrap justify-around">
         {articles.data.map((article) => {
-          return <NewsCard key={article.id} article={article.attributes} id={article.id} size="small" />;
+          return <NewsCard key={article.id} article={article.attributes} id={article.id} />;
         })}
       </div>
       <NewsPaginate page={currentPage} noOfPages={noOfPages} />
