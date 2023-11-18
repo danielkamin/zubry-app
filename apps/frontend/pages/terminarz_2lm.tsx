@@ -60,7 +60,7 @@ export default function Schedule({ leagueId, seasonId, leaderBoard, ourGames }) 
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const pzkoszApiService = await PzkoszApiService.getInstance();
   const pzkoszSettingsResult = (await MainPageService.getPzkoszSettingsData()).result;
   const ourGamesResult = (await pzkoszApiService.getOurGames()).result;
@@ -73,8 +73,7 @@ export async function getStaticProps() {
       teamId: pzkoszSettingsResult.data.attributes.settings.teamId,
       leaderBoard: leaderBoardResult,
       ourGames: ourGamesResult
-    },
-    revalidate: 60
+    }
   };
 }
 
