@@ -1,7 +1,6 @@
 import axios from 'axios';
 import useSWR from 'swr';
 import Button from 'src/components/simple/Button';
-import Image from "next/legacy/image";
 import { motion } from 'framer-motion';
 
 const LastGame = () => {
@@ -22,12 +21,7 @@ const LastGame = () => {
           <div className="flex items-center">
             <div className="flex flex-col justify-center text-center items-center">
               <div className="relative last-game__team-logo">
-                <Image
-                  src={data.result.home.logo}
-                  layout="fill"
-                  alt="Logo drużyny Żubry Białystok"
-                  objectFit="contain"
-                />
+                <img src={data.result.home.logo} alt={data.result.home.name} />
               </div>
               <p className="last-game__team-name md:text-lg text-sm mt-2">{data.result.home.name}</p>
             </div>
@@ -38,7 +32,7 @@ const LastGame = () => {
             <span className="md:text-6xl sm:text-3xl text-xl md:mx-4 ml-2">{data.result.visitor.score}</span>
             <div className="flex flex-col justify-center text-center items-center">
               <div className="relative last-game__team-logo">
-                <Image src={data.result.visitor.logo} layout="fill" alt="Logo przeciwnej drużyny" objectFit="contain" />
+                <img src={data.result.visitor.logo} alt={data.result.visitor.name} />
               </div>
               <p className="last-game__team-name md:text-lg text-sm  mt-2">{data.result.visitor.name}</p>
             </div>

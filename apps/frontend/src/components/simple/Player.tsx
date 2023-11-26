@@ -41,7 +41,7 @@ const Player: FC<IPlayer> = ({
             {name} {surname}
           </div>
           <div className="text-sm">
-            {calculateAge(dateOfBirth, playerFromCms ? 'yyyy-MM-dd' : 'dd.MM.yyyy')}, {position}
+          {dateOfBirth ? `${calculateAge(dateOfBirth, playerFromCms ? 'yyyy-MM-dd' : 'dd.MM.yyyy')},` : ''}, {position}
           </div>
         </div>
         {!playerFromCms ||

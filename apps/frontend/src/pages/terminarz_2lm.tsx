@@ -42,8 +42,8 @@ export default function Schedule({ leagueId, seasonId, leaderBoard, ourGames }) 
         <div className="block text-center">
           <SubHeader textColor="gray-700">{'Terminarz naszych meczów'}</SubHeader>
         </div>
-        {ourGames.map((item, key) => {
-          return <ScheduleItem key={key} data={item} />;
+        {ourGames.map((item) => {
+          return <ScheduleItem data={item} />;
         })}
         <div className="w-full text-center mt-20">
           <a
@@ -60,7 +60,7 @@ export default function Schedule({ leagueId, seasonId, leaderBoard, ourGames }) 
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const pzkoszApiService = await PzkoszApiService.getInstance();
   const pzkoszSettingsResult = (await MainPageService.getPzkoszSettingsData()).result;
   const ourGamesResult = (await pzkoszApiService.getOurGames()).result;
@@ -74,8 +74,7 @@ export async function getStaticProps() {
       teamId: pzkoszSettings.teamId,
       leaderBoard: leaderBoardResult,
       ourGames: ourGamesResult
-    },
-    revalidate: 60
+    }
   };
 }
 
