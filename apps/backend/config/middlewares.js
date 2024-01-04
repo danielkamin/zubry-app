@@ -7,8 +7,8 @@ module.exports = [
         useDefaults: true,
         directives: {
           'connect-src': ["'self'", 'https:'],
-          'img-src': ["'self'", 'data:', 'blob:', 'market-assets.strapi.io', 'daniel-general.s3.waw.io.cloud.ovh.net'],
-          'media-src': ["'self'", 'data:', 'blob:', 'market-assets.strapi.io', 'daniel-general.s3.waw.io.cloud.ovh.net'],
+          'img-src': ["'self'", 'data:', 'blob:', 'market-assets.strapi.io', 'zubry-general.s3.waw.io.cloud.ovh.net'],
+          'media-src': ["'self'", 'data:', 'blob:', 'market-assets.strapi.io', 'zubry-general.s3.waw.io.cloud.ovh.net'],
           upgradeInsecureRequests: null
         }
       }

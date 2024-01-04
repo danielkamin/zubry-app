@@ -4,7 +4,8 @@
   "info": {
     "singularName": "ustawienia-ogolne",
     "pluralName": "ustawienia-ogolnes",
-    "displayName": "Ustawienia ogólne"
+    "displayName": "Ustawienia ogólne",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,12 +17,12 @@
       "default": "https://www.youtube.com/watch?v=9Mde8oWhGTI"
     },
     "Team_Banner": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "Shop_Intro": {
       "type": "text",
@@ -33,6 +34,14 @@
     },
     "Club_Intro": {
       "type": "text",
+      "required": true
+    },
+    "Gallery_Preview": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
       "required": true
     }
   }

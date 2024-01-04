@@ -1,6 +1,6 @@
 export default {
   config: {
-    locales: ['pl'],
+    locales: ['pl', 'en']
   },
-  bootstrap() {},
+  bootstrap() {}
 };
