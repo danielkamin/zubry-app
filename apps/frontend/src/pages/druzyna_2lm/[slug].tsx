@@ -41,7 +41,7 @@ const PlayerDetails = ({ player }: { player: TStrapiPlayer & { id: number } }) =
                   layout="fill"
                   objectFit="contain"
                   alt={`${player.First_Name} ${player.Last_Name}`}
-                  src={`/strapi${player.Photo.data.attributes.url}`}
+                  src={player.Photo.data.attributes.url}
                   className="rounded-xl"
                 ></Image>
               ) : (
@@ -53,7 +53,6 @@ const PlayerDetails = ({ player }: { player: TStrapiPlayer & { id: number } }) =
             <div className="flex flex-col items-center lg:w-4/6 w-full">
               <div className="text-2xl sm:text-3xl lg:text-5xl font-semibold mt-3">
                 <p className="bg-yellow-400 text-white w-max px-8 py-2">NR {player.Number}</p>
-
               </div>
               <div className="text-2xl sm:text-3xl lg:text-5xl font-semibold mt-3">
                 <p className="bg-black text-white w-max px-8 py-2">{player.Position}</p>

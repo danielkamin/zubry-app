@@ -24,6 +24,7 @@ export default DynamicPage;
 
 export async function getServerSideProps({ params }) {
   const { result, status } = await MainPageService.getDynamicPages(params.slug);
+
   if (!status)
     return {
       redirect: {

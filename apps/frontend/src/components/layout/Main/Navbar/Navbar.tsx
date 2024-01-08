@@ -18,7 +18,12 @@ const Navbar = () => {
         sort: 'Order',
         populate: '*',
         publicationState: 'live',
-        fields: ['Title', 'Page_Url']
+        fields: ['Title', 'Page_Url'],
+        filters: {
+          Display_Menu: {
+            $eq: true
+          }
+        }
       },
       {
         encodeValuesOnly: true
@@ -28,10 +33,15 @@ const Navbar = () => {
   );
   const getDynamicLinks = (res: TStrapiArrayResponse<{ Title: string; Page_Url: string }>) => {
     if (!res?.data) return null;
-    return res.data.map((p) => ({
-      url: `/klub/${p.attributes.Page_Url}`,
-      text: p.attributes.Title
-    }));
+    let links = [{ url: '/galeria', text: 'Galeria' }];
+    links = [
+      ...links,
+      ...res.data.map((p) => ({
+        url: `/klub${p.attributes.Page_Url}`,
+        text: p.attributes.Title
+      }))
+    ];
+    return links;
   };
 
   return (

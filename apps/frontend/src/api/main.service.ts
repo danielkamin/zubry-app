@@ -255,30 +255,34 @@ const MainPageService: TMainPageService = {
       return { status: false, result: null };
     }
   },
-  getPhotoGalleryCategories: async (id) => {
+  getPhotoGalleries: async () => {
     const query = qs.stringify(
       {
         populate: {
-          Categories: {
-            //sort not working
-            //https://github.com/strapi/strapi/pull/16139
-            //change after updating
-            sort: ['id:desc'],
-            populate: {
-              Thumbnail: true,
-              Images: id ? true : false
-            },
-            filters: id
-              ? {
-                  id: {
-                    $eq: id
-                  }
-                }
-              : null
-          },
-          Preview: {
-            populate: '*'
-          }
+          Preview: '*',
+          Images: '*'
+        },
+        sort: 'Event_Date:DESC',
+        publicationState: 'live'
+      },
+      {
+        encodeValuesOnly: true
+      }
+    );
+    try {
+      const { data } = await cmsAxiosInstance.get(`/galerias?${query}`);
+      return { status: true, result: data };
+    } catch (err) {
+      console.error(err.toJSON ? err.toJSON().message : err);
+      return { status: false, result: null };
+    }
+  },
+  getPhotoGalleryById: async (id) => {
+    const query = qs.stringify(
+      {
+        populate: {
+          Preview: '*',
+          Images: '*'
         }
       },
       {
@@ -286,7 +290,7 @@ const MainPageService: TMainPageService = {
       }
     );
     try {
-      const { data } = await cmsAxiosInstance.get(`/galeria?${query}`);
+      const { data } = await cmsAxiosInstance.get(`/galerias/${id}?${query}`);
       return { status: true, result: data };
     } catch (err) {
       console.error(err.toJSON ? err.toJSON().message : err);
@@ -361,7 +365,7 @@ const MainPageService: TMainPageService = {
         publicationState: 'live',
         filters: {
           Page_Url: {
-            $eq: pageUrl
+            $eq: pageUrl.startsWith('/') ? pageUrl : `/${pageUrl}`
           }
         }
       },

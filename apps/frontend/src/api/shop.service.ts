@@ -185,7 +185,7 @@ const ShopService: TShopService = {
       const { data }: { data: TStrapiObjectResponse<TStrapiProduct> } = await cmsAxiosInstance.get(
         `/produkts/${productId}?populate=Image`
       );
-      return { status: true, result: `/strapi${data.data.attributes.Image.data.attributes.url}` };
+      return { status: true, result: data.data.attributes.Image.data.attributes.url };
     } catch (err) {
       console.error(err);
       return { status: false, result: null };

@@ -1,5 +1,5 @@
 import Zoom from 'react-medium-image-zoom';
-import Image from "next/image";
+import Image from 'next/image';
 const ImageWithZoom = ({ imageSrc, altName }: { imageSrc: string; altName: string }) => {
   return (
     <div className="relative h-96 w-auto player-gallery-item">
@@ -10,7 +10,7 @@ const ImageWithZoom = ({ imageSrc, altName }: { imageSrc: string; altName: strin
           style={{ width: 'auto', height: '100%' }} // optional
           className="rounded-xl"
           sizes="100vw"
-          src={`/strapi${imageSrc}`}
+          src={imageSrc}
           alt={altName}
         />
       </Zoom>

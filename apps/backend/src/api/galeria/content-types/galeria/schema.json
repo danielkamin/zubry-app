@@ -1,33 +1,39 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "galerias",
   "info": {
     "singularName": "galeria",
     "pluralName": "galerias",
-    "displayName": "Galeria",
-    "description": ""
+    "displayName": "Galeria"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Categories": {
-      "type": "dynamiczone",
-      "components": [
-        "zdjecia.category"
-      ]
+    "Title": {
+      "type": "string",
+      "required": true
     },
     "Preview": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Images": {
+      "allowedTypes": [
+        "images"
+      ],
       "type": "media",
       "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "required": true
+    },
+    "Event_Date": {
+      "type": "date",
+      "required": true
     }
   }
 }

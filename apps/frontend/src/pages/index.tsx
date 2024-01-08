@@ -131,7 +131,6 @@ export async function getStaticProps() {
   const globalSettings = (await MainPageService.getGlobalSettings()).result;
   const latestNewsResult = (await MainPageService.getPaginatedArticles()).result;
   const playersResult = (await MainPageService.get2LMPlayers()).result;
-  const imagesResult = (await MainPageService.getPhotoGalleryCategories()).result;
   return {
     props: {
       lastGame: lastGame ? lastGame.result : null,
@@ -140,10 +139,8 @@ export async function getStaticProps() {
         ? globalSettings.data.attributes.Youtube_Url
         : `https://www.youtube.com/watch?v=${DEFAULT_YOUTUBE_VIDEO_ID}`,
       players: playersResult,
-      images: imagesResult.data.attributes.Preview.data,
-      teamImageUrl: globalSettings.data
-        ? `/strapi${globalSettings.data.attributes.Team_Banner.data.attributes.url}`
-        : 'team.jpg',
+      images: globalSettings.data.attributes.Gallery_Preview.data,
+      teamImageUrl: globalSettings.data ? globalSettings.data.attributes.Team_Banner.data.attributes.url : 'team.jpg',
       clubIntro: globalSettings.data ? globalSettings.data.attributes.Club_Intro : '...',
       youtubeIntro: globalSettings.data ? globalSettings.data.attributes.Youtube_Intro : '...'
     },

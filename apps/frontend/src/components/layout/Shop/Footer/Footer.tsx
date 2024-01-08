@@ -6,7 +6,7 @@ const ShopFooter = () => {
     <footer className="bg-black py-8 xl:pt-8">
       <div className="max-w-screen-lg xl:max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 text-white">
         <ul className="text-lg pb-8 flex flex-wrap justify-center">
-          <li className="w-1/2 md:w-1/3 lg:w-1/3">
+          <li className="w-1/2">
             <div className="text-center">
               <h2 className="text-white uppercase mb-4">Obsługa Klienta</h2>
               <ul className="text-sm">
@@ -22,35 +22,12 @@ const ShopFooter = () => {
               </ul>
             </div>
           </li>
-          <li className="w-1/2 md:w-1/3 lg:w-1/3">
-            <div className="text-center">
-              <h2 className="text-white  text-md uppercase mb-4">Kontakty</h2>
-              <ul className="text-sm">
-                <li className="mb-4 hover:text-purple-600 transition-colors duration-200">
-                  <Link href="/klub/kontakt">Nasza siedziba</Link>
-                </li>
-                <li className="mb-4 hover:text-purple-600  transition-colors duration-200">
-                  <a
-                    href="https://www.facebook.com/zubryofficial"
-                    target="_blank"
-                    rel="noreferrer"
-                    referrerPolicy="no-referrer"
-                  >
-                    Facebook
-                  </a>
-                </li>
-                <li className="mb-4 hover:text-purple-600  transition-colors duration-200">
-                  <a href="tel:xxx xxx xxx">tel. xxx xxx xxx</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li className="w-1/2 md:w-1/3 lg:w-1/3">
+          <li className="w-1/2">
             <div className="text-center">
               <h2 className="text-white  text-md uppercase mb-4">Regulaminy</h2>
               <ul className="text-sm">
                 <li className="mb-4 hover:text-purple-600  transition-colors duration-200">
-                  <Link href="/sklep/informacje/polityka_prywatnosci">Polityka Prywatności</Link>
+                  <Link href="/sklep/informacje/ciasteczka">Polityka Prywatności</Link>
                 </li>
                 <li className="mb-4 hover:text-purple-600 transition-colors duration-200">
                   <Link href="/sklep/informacje/regulamin">Regulamin Sklepu</Link>

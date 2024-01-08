@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- *  galeria controller
+ * galeria controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;

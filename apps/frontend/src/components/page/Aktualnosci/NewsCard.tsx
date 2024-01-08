@@ -1,7 +1,6 @@
 import { PictureOutlined } from '@ant-design/icons';
 import { FC } from 'react';
 import Link from 'next/link';
-import { Parser } from 'html-to-react';
 import edjsHTML from 'editorjs-html';
 
 import CustomDate from 'src/components/simple/CustomDate';
@@ -29,8 +28,6 @@ const getCardFullClassesFromSize = () => {
 };
 
 const NewsCard: FC<INewsCardProps> = ({ article, id }) => {
-  const edjsParser = edjsHTML();
-  const HTML = article.Content ? edjsParser.parse(JSON.parse(article.Content)) : null;
   const thumbnail = article.Image.data;
   const classes = getCardFullClassesFromSize();
   const getThumbnailSrc = (newsCardImage: TStrapiImageWithFormats) => {
@@ -47,14 +44,10 @@ const NewsCard: FC<INewsCardProps> = ({ article, id }) => {
       <div className="h-full">
         <div className={classes.imageWrapper}>
           {thumbnail ? (
-            <img
-            alt={article.Title}
-            src={`/strapi${getThumbnailSrc(thumbnail.attributes)}`}
-            className={classes.image}
-          />
+            <img alt={article.Title} src={getThumbnailSrc(thumbnail.attributes)} className={classes.image} />
           ) : (
             <div className="flex justify-center items-center w-full h-full">
-                <PictureOutlined className="absolute text-gray-800 z-50 text-3xl" />
+              <PictureOutlined className="absolute text-gray-800 z-50 text-3xl" />
             </div>
           )}
         </div>

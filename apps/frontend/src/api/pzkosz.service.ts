@@ -40,7 +40,7 @@ class PzkoszApiService {
       try {
         const { result, status } = await MainPageService.getPzkoszSettingsData();
         if (!status) throw new Error('Error while fetching PZKosz settings from CMS!');
-        settings = JSON.parse(result.data.attributes.settings as string);
+        settings = result.data.attributes.settings as PzkoszSettings;
         apiRequestParams.append('key', process.env.PZKOSZ_API_KEY);
         apiRequestParams.append('leagueId', settings.leagueId.toString());
         apiRequestParams.append('seasonid', settings.seasonId.toString());

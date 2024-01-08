@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import { useRouter } from 'next/router';
 
 import HorizontalCardSkeleton from 'src/components/simple/HorizontalCardSkeleton';
@@ -23,7 +23,7 @@ const ImagesRotator = ({ images }: { images: TStrapiContentItem<TStrapiImageWith
                 <Image
                   layout="fill"
                   objectFit="cover"
-                  src={`/strapi${getImageUrl(image.attributes)}`}
+                  src={getImageUrl(image.attributes)}
                   alt={image.attributes.name}
                   style={{ minWidth: '400px' }}
                 />
@@ -35,12 +35,7 @@ const ImagesRotator = ({ images }: { images: TStrapiContentItem<TStrapiImageWith
           <ul className="images-rotator__images-list">
             {images.map((image, index) => (
               <li className="images-rotator__image-wrapper" key={index}>
-                <Image
-                  layout="fill"
-                  objectFit="cover"
-                  src={`/strapi${image.attributes.url}`}
-                  alt={image.attributes.name}
-                />
+                <Image layout="fill" objectFit="cover" src={image.attributes.url} alt={image.attributes.name} />
               </li>
             ))}
           </ul>

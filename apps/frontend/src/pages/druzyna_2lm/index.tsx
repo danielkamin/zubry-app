@@ -22,13 +22,13 @@ export default function Team({
         <meta name="description" content="Zobacz zawodników 2. ligowej drużyny Żubry Chorten Białystok." key="desc" />
       </Head>
       <Header title={'Żubry Chorten Białystok'} />
-      <p>Kadra trenerska drużyny Żubry Chorten Białystok prowadzącej rozgrywki 2LM.</p>
+      <p>Poniżej zaprezentowana jest nasza kadra trenerska oraz aktualni zawodnicy reprezentujący nasz klub</p>
       {coaches && coaches.data.length > 0 && (
         <div
           className={
             'grid ' +
             PickGridCols(coaches.data.length) +
-            ' md:grid-cols-1 sm:grid-cols-1 mt-10 mb-10 justify-items-center'
+            'grid md:grid-cols-2 grid-cols-1 gap-16 mt-10 justify-items-center'
           }
         >
           {coaches.data.map((coach, key) => {
@@ -37,17 +37,13 @@ export default function Team({
                 key={key}
                 name={coach.attributes.First_Name}
                 surname={coach.attributes.Last_Name}
-                imageSrc={coach.attributes.Photo.data ? `/strapi${coach.attributes.Photo.data.attributes.url}` : null}
+                imageSrc={coach.attributes.Photo.data ? coach.attributes.Photo.data.attributes.url : null}
                 description={coach.attributes.Position}
               />
             );
           })}
         </div>
       )}
-      <div className="block">
-        <p>Przedstawieni są tutaj zawodnicy reprezentujacy nasze barwy w sezonie 2021/2022.</p>
-        <p>Wybierając, któregoś z zawodników możesz podejrzeć jego dokładne statystyki, nie tylko z tego sezonu.</p>
-      </div>
       {players && players.data.length > 0 && (
         <div
           className={'grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-16 mt-10 justify-items-center'}
@@ -58,7 +54,7 @@ export default function Team({
                 key={key}
                 name={player.attributes.First_Name}
                 surname={player.attributes.Last_Name}
-                imageSrc={player.attributes.Photo.data ? `/strapi${player.attributes.Photo.data.attributes.url}` : null}
+                imageSrc={player.attributes.Photo.data ? player.attributes.Photo.data.attributes.url : null}
                 dateOfBirth={player.attributes.Birthday}
                 position={player.attributes.Position}
                 playerId={player.id}

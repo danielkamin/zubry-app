@@ -1,14 +1,18 @@
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 
-import { TStrapiGlobalSettings } from '@/types';
+import { TStrapiBasicImage, TStrapiContentItem, TStrapiGlobalSettings, TStrapiImageWithFormats } from '@/types';
 import { MainPageService } from '@/api';
 type TGlobalStore = {
   settings: TStrapiGlobalSettings | null;
   loading: boolean;
   hasErrors: boolean;
   fetchSettings: () => Promise<void>;
-  getSettingByKey: (key: keyof TStrapiGlobalSettings) => string;
+  getSettingByKey: (key: keyof TStrapiGlobalSettings) =>
+    | string
+    | {
+        data: TStrapiContentItem<TStrapiBasicImage>[];
+      };
 };
 const useGlobalStore = create<TGlobalStore>(
   persist(

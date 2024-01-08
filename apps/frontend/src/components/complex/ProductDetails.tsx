@@ -24,8 +24,9 @@ const ProductDetails = ({ product }: { product: TStrapiContentItem<TStrapiProduc
         <Zoom>
           <div className="product-image-wrapper flex justify-center md:mb-0 mb-8 md:mr-8">
             <img
-              src={`/strapi${product.attributes.Image.data.attributes.url}`}
+              src={product.attributes.Image.data.attributes.url}
               className="product-image rounded-xl shadow"
+              alt=""
             />
           </div>
         </Zoom>

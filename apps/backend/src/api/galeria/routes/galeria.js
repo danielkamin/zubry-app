@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * galeria router.
+ * galeria router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;

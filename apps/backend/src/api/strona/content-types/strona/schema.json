@@ -47,6 +47,10 @@
       "unique": true,
       "required": true,
       "min": 1
+    },
+    "Display_Menu": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

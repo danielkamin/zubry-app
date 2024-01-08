@@ -156,22 +156,16 @@ export type TStrapiLeaderBoardItem = {
   Points: number;
 } & TStrapiBaseComponent;
 
-export type TStrapiGalleryCategory = {
+export type TStrapiGallery = {
   Title: string;
-  Images?: {
+  Event_Date: string;
+  Images: {
     data: TStrapiContentItem<TStrapiImageWithAdditionalInfo>[];
   };
-  Thumbnail: {
+  Preview: {
     data: TStrapiContentItem<TStrapiImageWithAdditionalInfo>;
   };
-} & TStrapiBaseComponent;
-
-export type TStrapiClubGallery = {
-  Categories: TStrapiGalleryCategory[];
-  Preview: {
-    data: TStrapiContentItem<TStrapiImageWithAdditionalInfo>[];
-  };
-};
+} & TStrapiTimestamp;
 
 export type TStrapiProduct = {
   Price: number;
@@ -275,6 +269,7 @@ export type TStrapiGlobalSettings = {
   Youtube_Intro: string;
   Club_Intro: string;
   Team_Banner: { data: TStrapiContentItem<TStrapiImageWithFormats> };
+  Gallery_Preview: { data: TStrapiContentItem<TStrapiBasicImage>[] };
 };
 export type TStrapiComponent = Record<string, any> & TStrapiBaseComponent;
 

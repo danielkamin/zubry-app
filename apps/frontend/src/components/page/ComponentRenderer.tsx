@@ -4,11 +4,13 @@ import ContactForm from '../forms/ContactForm';
 import GoogleMaps from '../simple/GoogleMaps';
 import BasicContent from '../simple/BasicArticle';
 import PromoCard from '../simple/PromoCard';
+import GridGallery from '../simple/GridGallery';
 import { ImageWithDescription, ImageWithDescriptionWithRedirect } from '../simple/ImageWithDescription';
 import PersonCard from '../simple/PersonCard';
 
 const ComponentRenderer = ({ components }: { components: Array<TStrapiComponent> }) => {
   if (!components) return <p>Brak danych...</p>;
+  console.log(components);
   return (
     <article className="flex items-center justify-center flex-col gap-10">
       {components.map(({ __component, id, ...data }) => {
@@ -37,7 +39,7 @@ const ComponentRenderer = ({ components }: { components: Array<TStrapiComponent>
                   <PersonCard
                     key={u.id}
                     name={u.Name}
-                    imageSrc={u.Picture.data ? `/strapi${u.Picture.data.attributes.url}` : null}
+                    imageSrc={u.Picture.data ? u.Picture.data.attributes.url : null}
                     description={u.Description}
                   />
                 ))}
@@ -50,7 +52,7 @@ const ComponentRenderer = ({ components }: { components: Array<TStrapiComponent>
                 title={data.Title}
                 isVideoPromo={!!data.Video_Url}
                 description={data.Description}
-                sourceUrl={data.Video_Url ? data.Video_Url : `/strapi${data.Picture.data.attributes.url}`}
+                sourceUrl={data.Video_Url ? data.Video_Url : data.Picture.data.attributes.url}
                 redirectText="Zobacz więcej"
                 redirectUrl={data.Redirect_Url}
               />
@@ -73,6 +75,12 @@ const ComponentRenderer = ({ components }: { components: Array<TStrapiComponent>
                 <FormCard key={`${id}-${__component}`} title={data.Title}>
                   <ContactForm />
                 </FormCard>
+              </div>
+            );
+          case 'zdjecia.category':
+            return (
+              <div key={`${id}-${__component}`}>
+                <GridGallery images={data.Images.data.map((image) => image.attributes)} />
               </div>
             );
           default:

@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * galeria service.
+ * galeria service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;

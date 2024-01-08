@@ -20,7 +20,7 @@ const SingleNews = ({
 }) => {
   const router = useRouter();
   const edjsParser = edjsHTML();
-  const HTML = article.Content ? edjsParser.parse(JSON.parse(article.Content)) : null;
+  const HTML = article?.Content ? edjsParser.parse(JSON.parse(article.Content)) : null;
   return (
     <>
       {router.isFallback ? (

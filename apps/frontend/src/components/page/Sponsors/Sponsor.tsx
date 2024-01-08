@@ -1,5 +1,5 @@
 import { TStrapiSponsor } from '@/types';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 
 const Sponsor = ({ sponsorData }: { sponsorData: TStrapiSponsor }) => {
   const generateLink = (url: string | null) => {
@@ -12,7 +12,7 @@ const Sponsor = ({ sponsorData }: { sponsorData: TStrapiSponsor }) => {
       <a rel="noreferrer" href={generateLink(sponsorData.Url)}>
         <div className="image-container relative w-full h-40 md:h-52">
           <Image
-            src={`/strapi${sponsorData.Image.data.attributes.url}`}
+            src={sponsorData.Image.data.attributes.url}
             layout="fill"
             objectFit="contain"
             alt="Logo drużyny Żubry Białystok"

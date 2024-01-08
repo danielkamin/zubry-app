@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import Link from 'next/link';
 
 import HorizontalCardSkeleton from 'src/components/simple/HorizontalCardSkeleton';
@@ -35,7 +35,7 @@ const PlayersSection = ({ players }: { players: TStrapiContentItem<TStrapiPlayer
                   objectFit="cover"
                   priority
                   alt={`${player.attributes.First_Name} ${player.attributes.Last_Name}`}
-                  src={player.attributes.Photo.data ? `/strapi${player.attributes.Photo.data.attributes.url}` : null}
+                  src={player.attributes.Photo.data ? player.attributes.Photo.data.attributes.url : null}
                   className=""
                 />
                 <div className="absolute left-0 bottom-0 w-full text-center py-4 bg-black blur-sm"></div>

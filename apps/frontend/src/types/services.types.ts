@@ -7,7 +7,6 @@ import {
   TStrapiPzkoszSettings,
   TStrapi3LMLeaderboard,
   TStrapi3LMSchedule,
-  TStrapiClubGallery,
   TStrapiUser,
   TStrapiProduct,
   TStrapiOrder,
@@ -19,7 +18,9 @@ import {
   TCartProduct,
   TCreateOrderForm,
   TProductsQuery,
-  TSession
+  TSession,
+  TStrapiContentItem,
+  TStrapiGallery
 } from '@/types';
 
 //#region base
@@ -79,7 +80,10 @@ export type TMainPageService = {
   get3LMCoaches: () => TServiceResponse<TStrapiArrayResponse<TStrapiPlayer> | null>;
   get2LMCoaches: () => TServiceResponse<TStrapiArrayResponse<TStrapiPlayer> | null>;
   getPreviewPostBySlug: (slug: string) => TServiceResponse<TStrapiObjectResponse<TStrapiArticle>>;
-  getPhotoGalleryCategories: (id?: string) => TServiceResponse<TStrapiObjectResponse<TStrapiClubGallery | null>>;
+  getPhotoGalleries: (id?: string) => TServiceResponse<TStrapiArrayResponse<TStrapiContentItem<TStrapiGallery> | null>>;
+  getPhotoGalleryById: (
+    id?: string
+  ) => TServiceResponse<TStrapiObjectResponse<TStrapiContentItem<TStrapiGallery> | null>>;
   getPhotosByCaptionFromGallery: (searchQuery?: string) => TServiceResponse<TStrapiImageWithAdditionalInfo[] | null>;
   getGlobalSettings: () => TServiceResponse<TStrapiObjectResponse<TStrapiGlobalSettings> | null>;
   getDynamicPages: (pageUrl: string) => TServiceResponse<TStrapiArrayResponse<TStrapiDynamicPage> | null>;

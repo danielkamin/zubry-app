@@ -30,7 +30,7 @@ const useCartStore = create<TCartState>(
               size: productDetails.size,
               quantity: +productDetails.quantity,
               name: product.attributes.Name,
-              imageUrl: `/strapi${product.attributes.Image.data.attributes.url}`
+              imageUrl: product.attributes.Image.data.attributes.url
             }
           ]
         }));

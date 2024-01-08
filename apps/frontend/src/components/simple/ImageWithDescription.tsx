@@ -18,7 +18,7 @@ export const ImageWithDescription = ({ description, picture, isBanner }: IImageW
             style={{ width: 'auto', height: '100%' }} // optional
             className="rounded-xl"
             sizes="100vw"
-            src={`/strapi${picture.url}`}
+            src={picture.url}
             alt={''}
           />
         </div>
@@ -28,7 +28,7 @@ export const ImageWithDescription = ({ description, picture, isBanner }: IImageW
   return (
     <div>
       <div className="lg:h-96 md:h-60 sm:h-48 h-40 overflow-hidden rounded-lg bg-gray-200 relative w-72">
-        <Image src={`/strapi${picture.url}`} alt={description} layout="fill" objectFit="cover" />
+        <Image src={picture.url} alt={description} layout="fill" objectFit="cover" />
       </div>
       <p className="mt-4 text-lg font-medium text-gray-800">{description}</p>
     </div>
