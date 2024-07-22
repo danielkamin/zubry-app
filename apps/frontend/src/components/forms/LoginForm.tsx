@@ -1,10 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { MailOutlined, UnlockOutlined } from '@ant-design/icons';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { signIn } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
-
-//todo refactor Common componentu button na nowy
 
 const LoginForm = ({ csrfToken }) => {
   const {
@@ -14,7 +11,11 @@ const LoginForm = ({ csrfToken }) => {
   } = useForm();
 
   const login = async (data) => {
-    await signIn('credentials', { username: data.username, password: data.password, callbackUrl: '/sklep' });
+    await signIn('credentials', {
+      username: data.username,
+      password: data.password,
+      callbackUrl: `/sklep`
+    });
   };
   return (
     <form onSubmit={handleSubmit(login)}>

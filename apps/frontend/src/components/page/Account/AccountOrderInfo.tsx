@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 
 import { TStrapiContentItem, TStrapiOrder } from '@/types';
 import { getOrderStatusText } from '@/utils';
@@ -41,7 +41,9 @@ const AccountOrderInfo = ({ order }: { order: TStrapiContentItem<TStrapiOrder> }
                 <span className="relative">{getOrderStatusText(order.attributes)}</span>
               </span>
             </p>
-            <p>Data zamówienia: {new Date(order.attributes.Order_Date).toLocaleDateString()}</p>
+            <p suppressHydrationWarning>
+              Data zamówienia: {new Date(order.attributes.Order_Date).toLocaleDateString()}
+            </p>
             <p>Data wysłania: --</p>
           </section>
         </div>

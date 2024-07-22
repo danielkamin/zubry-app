@@ -142,7 +142,7 @@ const ShopService: TShopService = {
           }
         },
         filters: {
-          user: {
+          User: {
             id: {
               $eq: sessionData.id
             }

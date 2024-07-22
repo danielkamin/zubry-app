@@ -63,6 +63,10 @@ const options = {
       session.jwt = token.jwt;
       session.id = token.id;
       return Promise.resolve(session);
+    },
+
+    async redirect({ url }) {
+      return `${process.env.NEXTAUTH_URL_INTERNAL}${url}`;
     }
   },
   pages: {
