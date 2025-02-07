@@ -32,7 +32,6 @@ const Banner: FC<IBannerProps> = ({ size, children, imageUrl }) => {
           {children}
         </motion.h1>
         <div className="parallax-banner" style={{ backgroundImage: `url('${imageUrl}')` }}></div>
-        {/* <div className="absolute top-0 left-0 bg-black opacity-20 w-full h-full"></div> */}
       </div>
     </div>
   );

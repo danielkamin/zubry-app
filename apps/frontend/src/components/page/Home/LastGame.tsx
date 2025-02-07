@@ -13,7 +13,7 @@ const LastGame = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className=" shadow-2xl border-2 flex  rounded-2xl last-game mx-auto my-0 w-max bg-white transform -translate-y-3/4 justify-center items-center"
+      className=" shadow-2xl border-2 flex  rounded-2xl last-game mx-auto my-0 w-max bg-white transform -translate-y-2/4 justify-center items-center"
     >
       <div className="flex items-center flex-col md:px-14 sm:px-8 md:pt-5 pt-2 md:pb-10 sm:pb-4 pb-2 px-2 font-semibold">
         <div className="text-gray-500 text-sm ">{data.result.date}</div>

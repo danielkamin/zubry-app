@@ -92,8 +92,8 @@ class PzkoszApiService {
       currentRequestParams.delete('groupid');
       currentRequestParams.append('groupid', this.settings.stages.slice(-1)[0].id.toString());
     }
-    currentRequestParams.append('logow', '200');
-    currentRequestParams.append('logoh', '200');
+    currentRequestParams.append('logow', '150');
+    currentRequestParams.append('logoh', '150');
     try {
       const response = await this.apiAxiosInstance.post('', currentRequestParams);
       const data = response.data.items;
