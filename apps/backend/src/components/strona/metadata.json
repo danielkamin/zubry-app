@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_strona_metadata",
+  "info": {
+    "displayName": "Metadata"
+  },
+  "options": {},
+  "attributes": {
+    "Meta_Title": {
+      "type": "string",
+      "required": true
+    },
+    "Meta_Description": {
+      "type": "text"
+    }
+  }
+}

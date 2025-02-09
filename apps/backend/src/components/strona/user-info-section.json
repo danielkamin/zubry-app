@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_strona_user_info_sections",
+  "info": {
+    "displayName": "User info section"
+  },
+  "options": {},
+  "attributes": {
+    "User_Card": {
+      "type": "component",
+      "repeatable": true,
+      "component": "strona.user-card"
+    }
+  }
+}

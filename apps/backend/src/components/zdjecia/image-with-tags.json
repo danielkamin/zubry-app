@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_zdjecia_image_with_tags",
+  "info": {
+    "displayName": "Image with tags"
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Tags": {
+      "type": "string"
+    }
+  }
+}

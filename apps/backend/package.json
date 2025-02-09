@@ -1,7 +1,7 @@
 {
   "name": "zubry-cms",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Żubry Białystok CMS",
   "scripts": {
     "develop": "strapi develop",
@@ -16,26 +16,29 @@
     "prettier:fix": "prettier --write **/*.js"
   },
   "dependencies": {
-    "@strapi/helper-plugin": "~4.5.0",
-    "@strapi/plugin-documentation": "~4.5.0",
-    "@strapi/plugin-i18n": "~4.5.0",
-    "@strapi/plugin-users-permissions": "~4.5.0",
-    "@strapi/provider-email-nodemailer": "~4.5.0",
-    "@strapi/strapi": "~4.5.0",
+    "@strapi/helper-plugin": "~4.16.2",
+    "@strapi/plugin-documentation": "~4.16.2",
+    "@strapi/plugin-i18n": "~4.16.2",
+    "@strapi/plugin-users-permissions": "~4.16.2",
+    "@strapi/provider-email-nodemailer": "~4.16.2",
+    "@strapi/provider-upload-aws-s3": "~4.16.2",
+    "@strapi/strapi": "~4.16.2",
     "axios": "^0.27.2",
-    "pg": "^8.7.1",
-    "sqlite3": "5.0.2",
-    "strapi-plugin-react-editorjs": "^2.0.0"
+    "pg": "^8.11.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^5.3.4",
+    "strapi-plugin-react-editorjs": "^2.0.2",
+    "styled-components": "^5.3.11"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Daniel Kamiński"
   },
   "strapi": {
     "uuid": "10d96260-8e0a-493e-b81d-09c66f15f057"
   },
   "engines": {
-    "node": ">=12.x.x <=16.x.x",
-    "npm": ">=6.0.0"
+    "node": "~18.17.x"
   },
   "license": "MIT",
   "devDependencies": {

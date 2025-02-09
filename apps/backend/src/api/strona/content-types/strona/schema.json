@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stronas",
+  "info": {
+    "singularName": "strona",
+    "pluralName": "stronas",
+    "displayName": "Strona",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 250,
+      "unique": true
+    },
+    "Metadata": {
+      "type": "component",
+      "repeatable": false,
+      "component": "strona.metadata",
+      "required": true
+    },
+    "Page_Content": {
+      "type": "dynamiczone",
+      "components": [
+        "strona.header",
+        "strona.location",
+        "strona.promo-card",
+        "zdjecia.category",
+        "strona.contact-form",
+        "strona.user-info-section",
+        "strona.simple-content"
+      ]
+    },
+    "Page_Url": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "regex": "^\\S*$"
+    },
+    "Order": {
+      "type": "integer",
+      "unique": true,
+      "required": true,
+      "min": 1
+    },
+    "Display_Menu": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

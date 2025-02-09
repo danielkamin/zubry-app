@@ -100,12 +100,12 @@ module.exports = async (strapi) => {
   }
   await strapi.entityService.update('api::ustawienia-pz-kosz.ustawienia-pz-kosz', 1, {
     data: {
-      settings: JSON.stringify({
+      settings: {
         leagueId: leagueId,
         seasonId: seasonId,
         teamId: teamId,
         stages: gamesStage
-      })
+      }
     }
   });
   console.log('Succesfully updated pzkosz settings!');
