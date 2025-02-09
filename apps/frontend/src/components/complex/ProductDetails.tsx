@@ -35,10 +35,14 @@ const ProductDetails = ({ product }: { product: TStrapiContentItem<TStrapiProduc
             <h2 className="text-3xl mb-2">{product.attributes.Name}</h2>
             <span className="text-purple-600 font-medium text-xl">{product.attributes.Price} zł</span>
           </div>
-          {product.attributes.Sizes && <AddProductForm sizes={product.attributes.Sizes.data} submitForm={addToCart} />}
+          {product.attributes.Sizes?.data?.length > 0 ? (
+            <AddProductForm sizes={product.attributes.Sizes.data} submitForm={addToCart} />
+          ) : null}
         </div>
       </div>
-      <p className="text-md text-gray-700 mt-6 md:w-3/5 xl:w-1/2 w-full">{product.attributes.Description}</p>
+      {product.attributes.Description ? (
+        <p className="text-md text-gray-700 mt-6 md:w-3/5 xl:w-1/2 w-full">{product.attributes.Description}</p>
+      ) : null}
     </div>
   );
 };
