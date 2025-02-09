@@ -27,10 +27,9 @@ jobs:
             source ~/.nvm/nvm.sh
             nvm install 18.19
             nvm use 18.19
-            npm install -g pnpm
-            cd ~/zubry-app
+            corepack enable
+            cd ~/zubry-app/apps/backend
             pnpm install
-            cd apps/backend
             pnpm build
             pm2 restart CMS
 
