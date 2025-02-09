@@ -2,16 +2,17 @@ name: Publish
 
 on:
   workflow_run:
-    workflows: ['Test']
+    workflows: ["Test"]
     types:
       - completed
 
 jobs:
-  build-cms:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy using ssh
+      - name: Deploy CMS
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -24,18 +25,16 @@ jobs:
             git pull origin main
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
-            git status
-            cd ~/zubry-app/apps/backend
-            npm install
-            npm run build
+            nvm install 18.19
+            nvm use 18.19
+            npm install -g pnpm
+            cd ~/zubry-app
+            pnpm install
+            cd apps/backend
+            pnpm build
             pm2 restart CMS
 
-  build-client:
-    needs: build-cms
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Deploy using ssh
+      - name: Deploy Client
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -46,13 +45,13 @@ jobs:
             cd ~/zubry-app/apps/frontend
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
-            git status
-            npm install
-            npm run build
+            nvm use 18.19
+            pnpm install
+            pnpm build
             pm2 restart Next
 
   lighthouse:
-    needs: build-client
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -63,5 +62,5 @@ jobs:
             https://zubry.pl/
             https://zubry.pl/terminarz_2lm
             https://zubry.pl/sklep
-          uploadArtifacts: true # save results as an action artifacts
-          temporaryPublicStorage: true # upload lighthouse report to the temporary storage
+          uploadArtifacts: true
+          temporaryPublicStorage: true

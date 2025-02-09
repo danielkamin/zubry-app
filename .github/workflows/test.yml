@@ -7,50 +7,47 @@ on:
     branches: [main]
 
 jobs:
-  test-cms:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v3
 
-      - name: Install Node.js and NPM
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18.19
 
-      - name: Install
-        working-directory: ./apps/backend
-        run: npm install
-
-      - name: Test
-        working-directory: ./apps/backend
-        run: npm run lint
-
-      - name: Build
-        working-directory: ./apps/backend
-        run: npm run build
-
-  test-client:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v3
-
-      - name: Install Node.js and NPM
-        uses: actions/setup-node@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
         with:
-          node-version: 16
+          version: 8
 
-      - name: Install
-        working-directory: ./apps/frontend
-        run: npm install
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-      - name: Test
-        working-directory: ./apps/frontend
-        run: npm run lint
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
-      - name: Type check
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Test CMS
+        working-directory: ./apps/backend
+        run: |
+          pnpm lint
+          pnpm build
+
+      - name: Test Client
         working-directory: ./apps/frontend
-        run: npm exec tsc
+        run: |
+          pnpm lint
+          pnpm exec tsc

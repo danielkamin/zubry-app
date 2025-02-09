@@ -964,10 +964,10 @@ export interface ApiZawodnicy2LmZawodnicy2Lm extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Number: Attribute.Integer;
+    Number: Attribute.Integer & Attribute.Required;
     First_Name: Attribute.String;
     Last_Name: Attribute.String;
-    Birthday: Attribute.Date;
+    Birthday: Attribute.Date & Attribute.Required;
     Position: Attribute.String;
     Photo: Attribute.Media;
     Images: Attribute.Media;
