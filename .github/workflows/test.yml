@@ -37,17 +37,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Install dependencies
-        run: pnpm install
-
       - name: Test CMS
         working-directory: ./apps/backend
         run: |
+          pnpm install
           pnpm lint
           pnpm build
 
       - name: Test Client
         working-directory: ./apps/frontend
         run: |
+          pnpm install
           pnpm lint
           pnpm exec tsc
