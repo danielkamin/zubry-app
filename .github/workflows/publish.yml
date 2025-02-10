@@ -47,7 +47,7 @@ jobs:
             nvm use 18.19
             pnpm install
             pnpm build
-            ~/.nvm/versions/node/v18.19.0/bin/pm2 Next
+            ~/.nvm/versions/node/v18.19.0/bin/pm2 restart UI
 
   lighthouse:
     needs: deploy
