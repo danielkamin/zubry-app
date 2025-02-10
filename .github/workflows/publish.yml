@@ -31,6 +31,7 @@ jobs:
             cd ~/zubry-app/apps/backend
             pnpm install
             pnpm build
+            ~/.nvm/versions/node/v18.19.0/bin/pm2 list
             /lib/node_modules/pm2/bin/pm2 restart CMS
 
       - name: Deploy Client
@@ -47,6 +48,7 @@ jobs:
             nvm use 18.19
             pnpm install
             pnpm build
+            ~/.nvm/versions/node/v18.19.0/bin/pm2 list
             /lib/node_modules/pm2/bin/pm2 restart Next
 
   lighthouse:
