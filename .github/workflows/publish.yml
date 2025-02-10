@@ -20,7 +20,6 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: 22
           script: |
-            source ~/.bashrc
             cd ~/zubry-app
             git restore .
             git pull origin main
@@ -32,7 +31,7 @@ jobs:
             cd ~/zubry-app/apps/backend
             pnpm install
             pnpm build
-            pm2 restart CMS
+            /lib/node_modules/pm2/bin/pm2 restart CMS
 
       - name: Deploy Client
         uses: appleboy/ssh-action@master
@@ -48,7 +47,7 @@ jobs:
             nvm use 18.19
             pnpm install
             pnpm build
-            pm2 restart Next
+            /lib/node_modules/pm2/bin/pm2 restart Next
 
   lighthouse:
     needs: deploy
