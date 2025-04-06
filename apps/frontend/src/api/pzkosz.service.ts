@@ -81,10 +81,40 @@ class PzkoszApiService {
     } catch (err) {
       console.error(err);
 
-      return { status: true, result: [] };
+      return { status: false, result: [] };
     }
   }
+  async getOurPlayOffGames() {
+    const currentRequestParams = new URLSearchParams(this.apiRequestParams);
+    currentRequestParams.append('function', 'getTimetable');
+    try {
+      currentRequestParams.delete('groupid');
+      const teamId = this.apiRequestParams.get('teamid');
+      currentRequestParams.delete('teamid');
+      currentRequestParams.append('home', teamId);
+      const homeResults = (await this.apiAxiosInstance.post('', currentRequestParams)).data;
+      const homeGames = Object.keys(homeResults.items)
+        .map((key) => homeResults.items[key])
+        .filter((item) => item.poziom.skrocona === 'PO');
 
+      currentRequestParams.delete('home');
+      currentRequestParams.append('visitor', teamId);
+      const visitorResults = (await this.apiAxiosInstance.post('', currentRequestParams)).data;
+      const visitorGames = Object.keys(visitorResults.items)
+        .map((key) => visitorResults.items[key])
+        .filter((item) => item.poziom.skrocona === 'PO');
+
+      const allGames = homeGames.concat(visitorGames);
+      const result = allGames.sort((a, b) => {
+        return new Date(a.kolejka.data).getTime() - new Date(b.kolejka.data).getTime();
+      });
+      return { status: true, result: result };
+    } catch (err) {
+      console.error(err);
+
+      return { status: false, result: [] };
+    }
+  }
   async getLastGame() {
     const currentRequestParams = new URLSearchParams(this.apiRequestParams);
     currentRequestParams.append('function', 'getTimetable');
