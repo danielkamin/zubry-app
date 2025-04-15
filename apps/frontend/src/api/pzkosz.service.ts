@@ -95,14 +95,14 @@ class PzkoszApiService {
       const homeResults = (await this.apiAxiosInstance.post('', currentRequestParams)).data;
       const homeGames = Object.keys(homeResults.items)
         .map((key) => homeResults.items[key])
-        .filter((item) => item.poziom.skrocona === 'PO');
+        .filter((item) => item.poziom.skrocona.toLowerCase() !== 'runda zasadnicza');
 
       currentRequestParams.delete('home');
       currentRequestParams.append('visitor', teamId);
       const visitorResults = (await this.apiAxiosInstance.post('', currentRequestParams)).data;
       const visitorGames = Object.keys(visitorResults.items)
         .map((key) => visitorResults.items[key])
-        .filter((item) => item.poziom.skrocona === 'PO');
+        .filter((item) => item.poziom.skrocona.toLowerCase() !== 'runda zasadnicza');
 
       const allGames = homeGames.concat(visitorGames);
       const result = allGames.sort((a, b) => {
@@ -118,10 +118,7 @@ class PzkoszApiService {
   async getLastGame() {
     const currentRequestParams = new URLSearchParams(this.apiRequestParams);
     currentRequestParams.append('function', 'getTimetable');
-    if (this.settings && this.settings.stages.slice(-1)[0]) {
-      currentRequestParams.delete('groupid');
-      currentRequestParams.append('groupid', this.settings.stages.slice(-1)[0].id.toString());
-    }
+    currentRequestParams.delete('groupid');
     currentRequestParams.append('logow', '150');
     currentRequestParams.append('logoh', '150');
     try {
