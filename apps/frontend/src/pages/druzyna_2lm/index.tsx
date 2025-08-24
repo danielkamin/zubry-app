@@ -19,9 +19,13 @@ export default function Team({
     <div>
       <Head>
         <title>Zespół 2. Ligi</title>
-        <meta name="description" content="Zobacz zawodników 2. ligowej drużyny Żubry Chorten Białystok." key="desc" />
+        <meta
+          name="description"
+          content="Zobacz zawodników 2. ligowej drużyny Żubry Abakus Okna Białystok."
+          key="desc"
+        />
       </Head>
-      <Header title={'Żubry Chorten Białystok'} />
+      <Header title={'Żubry Abakus Okna Białystok'} />
       <p>Poniżej zaprezentowana jest nasza kadra trenerska oraz aktualni zawodnicy reprezentujący nasz klub</p>
       {coaches && coaches.data.length > 0 && (
         <div

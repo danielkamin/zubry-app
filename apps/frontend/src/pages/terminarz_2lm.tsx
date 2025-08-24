@@ -19,7 +19,11 @@ export default function Schedule({ leagueId, seasonId, leaderBoard, ourGames, ou
       <div>
         <Head>
           <title>Terminarz 2. ligi</title>
-          <meta name="description" content="Zobacz terminarz 2. ligowej drużyny Żubry Chorten Białystok." key="desc" />
+          <meta
+            name="description"
+            content="Zobacz terminarz 2. ligowej drużyny Żubry Abakus Okna Białystok."
+            key="desc"
+          />
         </Head>
         <Header title={'Tabela i Terminarz - 2 liga'} />
         {ourPlayOffs && ourPlayOffs.length > 0 ? (

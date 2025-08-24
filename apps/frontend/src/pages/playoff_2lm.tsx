@@ -10,7 +10,11 @@ export default function PlayOff2LM({ ourPlayOffs }) {
     <div>
       <Head>
         <title>Mecze Play-Off</title>
-        <meta name="description" content="Zobacz terminarz 2. ligowej drużyny Żubry Chorten Białystok." key="desc" />
+        <meta
+          name="description"
+          content="Zobacz terminarz 2. ligowej drużyny Żubry Abakus Okna Białystok."
+          key="desc"
+        />
       </Head>
       <Header title={'Mecze Play-Off'} />
       {ourPlayOffs && ourPlayOffs.length > 0 ? (

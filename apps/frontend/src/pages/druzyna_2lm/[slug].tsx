@@ -29,7 +29,7 @@ const PlayerDetails = ({ player }: { player: TStrapiPlayer & { id: number } }) =
             </title>
             <meta
               name="description"
-              content={`Zobacz profil zawodnika ${player.First_Name} ${player.Last_Name} 2. ligowej drużyny Żubry Chorten Białystok.`}
+              content={`Zobacz profil zawodnika ${player.First_Name} ${player.Last_Name} 2. ligowej drużyny Żubry Abakus Okna Białystok.`}
               key="desc"
             />
           </Head>

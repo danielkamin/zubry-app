@@ -11,7 +11,7 @@ const Sponsors = ({ sponsors }: { sponsors: TStrapiContentItem<TStrapiSponsor>[]
     <>
       <Head>
         <title>Sponsorzy drużyny</title>
-        <meta name="description" content="Poznaj sponsorów drużyny Żubry Chorten Białystok." key="desc" />
+        <meta name="description" content="Poznaj sponsorów drużyny Żubry Abakus Okna Białystok." key="desc" />
       </Head>
       <div>
         <Header title={'Sponsorzy i partnerzy'} />

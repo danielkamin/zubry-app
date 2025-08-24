@@ -8,12 +8,12 @@ import { PzkoszSettings } from '@/types';
 const initalLatestGameData = {
   date: format(new Date(), 'dd.MM.yyyy HH:mm', { locale: pl }),
   home: {
-    name: 'Żubry Chorten Białystok',
+    name: 'Żubry Abakus Okna Białystok',
     logo: 'https://s1.static.esor.pzkosz.pl/internalfiles/image/kluby/s23/200-200/7601.jpg',
     score: 0
   },
   visitor: {
-    name: 'Żubry Chorten Białystok',
+    name: 'Żubry Abakus Okna Białystok',
     logo: 'https://s1.static.esor.pzkosz.pl/internalfiles/image/kluby/s23/200-200/7601.jpg',
     score: 0
   },
